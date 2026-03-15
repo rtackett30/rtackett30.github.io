@@ -48,6 +48,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: none;
     }
     nav a {
       color: rgba(255,255,255,0.75);
@@ -116,7 +117,15 @@
     }
     .hero-contact a:hover { color: var(--orange-light); }
 
-    /* ── PAGE BODY ── */
+    .hero-bar {
+      height: 3px;
+      background: var(--orange);
+    }
+    .hero-bar-thin {
+      height: 3px;
+      background: var(--orange);
+    }
+
     .page {
       max-width: 860px;
       margin: 0 auto;
@@ -253,6 +262,7 @@
     </div>
   </div>
 </div>
+<div class="hero-bar"></div>
 
 <!-- BODY -->
 <div class="page">
