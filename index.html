@@ -198,7 +198,14 @@
       letter-spacing: 0.03em;
     }
 
-    /* ── FOOTER ── */
+    .about-img {
+      float: left;
+      width: 200px;
+      margin: 0 1.8rem 1rem 0;
+      display: block;
+    }
+    .about-body::after { content: ''; display: table; clear: both; }
+
     footer {
       margin-top: 3rem;
       padding-top: 1rem;
@@ -255,6 +262,7 @@
     <p class="section-title">About</p>
     <div class="section-rule"></div>
     <div class="about-body">
+      <img src="Tackett_Mace.jpg" alt="Ronald J. Tackett, Ph.D." class="about-img">
 
       <p>I am a physicist, educator, and academic administrator at Kettering University in Flint, Michigan, where I serve as the Founding Head of the School of Foundational Studies and as an Associate Professor of Physics. The School of Foundational Studies brings together mathematics, natural sciences, and liberal arts under a shared commitment to foundational learning for engineers — the kind of learning that builds not just technical skill, but durable habits of mind.</p>
 
