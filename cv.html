@@ -14,10 +14,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --accent: #1B4332;
-      --accent-light: #2D6A4F;
-      --orange: #C9A227;
-      --orange-light: #E0B830;
+      --accent: #0D1F4C;
+      --accent-light: #1a3470;
+      --orange: #FFCE01;
+      --orange-light: #FFD740;
       --gold: #c8a040;
       --text: #1a1a1a;
       --subtext: #555;
@@ -110,17 +110,19 @@
 
     .header-contact {
       margin-top: 1.2rem;
-      padding-top: 1rem;
-      border-top: 2px solid var(--accent);
+      padding: 0.7rem 1rem;
+      background: var(--accent);
+      border-top: 3px solid var(--orange);
       display: flex;
       flex-wrap: wrap;
       gap: 0.3rem 1.5rem;
       font-size: 13px;
-      color: var(--subtext);
+      color: #fff;
+      font-weight: 400;
     }
-    .header-contact a { color: var(--accent); text-decoration: none; font-weight: 500; }
-    .header-contact a:hover { text-decoration: underline; color: var(--accent-light); }
-    .header-contact span { color: var(--accent); }
+    .header-contact a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; }
+    .header-contact a:hover { text-decoration: underline; color: #fff; }
+    .header-contact span { color: rgba(255,255,255,0.85); }
 
     /* ── PDF BUTTON ── */
       display: inline-block;
@@ -259,8 +261,8 @@
       nav { gap: 1rem; padding: 0 1rem; }
       .page { padding: 1.5rem 1rem 4rem; }
     }
-    .pdf-link { display: inline-block; margin-bottom: 1.5rem; padding: 0.45rem 1.1rem; background: var(--orange); color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; }
-    .pdf-link:hover { background: var(--orange-light); }
+    .pdf-link { display: inline-block; margin-bottom: 1.5rem; padding: 0.45rem 1.1rem; background: #27A9E1; color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: all 0.1s; border: 2px solid var(--accent); border-bottom: 5px solid var(--accent); border-right: 4px solid var(--accent); }
+    .pdf-link:hover { background: #1d8fb8; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); transform: translate(2px, 3px); }
   </style>
 </head>
 <body>
