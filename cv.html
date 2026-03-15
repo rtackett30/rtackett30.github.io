@@ -98,11 +98,7 @@
       font-weight: 300;
       color: var(--subtext);
     }
-    .header-photo img {
-      width: 110px;
-      height: auto;
-      display: block;
-    }
+
     .header-contact {
       margin-top: 1.2rem;
       padding-top: 1rem;
@@ -117,7 +113,6 @@
     .header-contact a:hover { text-decoration: underline; }
 
     /* ── PDF BUTTON ── */
-    .pdf-link {
       display: inline-block;
       margin: 0.5rem 0 1.5rem;
       padding: 0.5rem 1.2rem;
@@ -129,7 +124,6 @@
       letter-spacing: 0.04em;
       transition: background 0.2s;
     }
-    .pdf-link:hover { background: var(--accent-light); }
 
     /* ── SECTION ── */
     section { margin-bottom: 2.2rem; }
@@ -251,7 +245,6 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .header-top { flex-direction: column-reverse; }
-      .header-photo img { width: 80px; }
       .entry-head { flex-direction: column; gap: 0; }
       nav { gap: 1rem; padding: 0 1rem; }
       .page { padding: 1.5rem 1rem 4rem; }
@@ -278,10 +271,6 @@
         <p class="title">Founding Head, School of Foundational Studies &middot; Associate Professor of Physics</p>
         <p class="institution">Kettering University &middot; 1700 University Ave, Flint, MI 48504</p>
       </div>
-      <div class="header-photo">
-        <img src="headshot.png" alt="Ronald J. Tackett, Ph.D.">
-      </div>
-    </div>
     <div class="header-contact">
       <a href="mailto:rtackett@kettering.edu">rtackett@kettering.edu</a>
       <span>+1 248-921-6918</span>
@@ -290,7 +279,6 @@
     </div>
   </header>
 
-  <a class="pdf-link" href="#">&#8595; Download Full CV (PDF)</a>
 
   <!-- EDUCATION -->
   <section>
