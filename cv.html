@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae — Ronald J. Tackett, Ph.D.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Slab:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #2E4057;
+      --accent-light: #4a6080;
+      --gold: #c8a040;
+      --text: #1a1a1a;
+      --subtext: #555;
+      --rule-light: #ccc;
+      --bg: #fafafa;
+      --white: #fff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── NAV BAR ── */
+    nav {
+      background: var(--accent);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #fff; }
+    nav .nav-name {
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      margin-right: auto;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .header-name h1 {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 300;
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .header-name h1 strong { font-weight: 600; }
+    .header-name .title {
+      margin-top: 0.5rem;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--subtext);
+      letter-spacing: 0.02em;
+    }
+    .header-name .institution {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--subtext);
+    }
+    .header-photo img {
+      width: 110px;
+      height: auto;
+      display: block;
+    }
+    .header-contact {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule-light);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1.5rem;
+      font-size: 13px;
+      color: var(--subtext);
+    }
+    .header-contact a { color: var(--accent); text-decoration: none; }
+    .header-contact a:hover { text-decoration: underline; }
+
+    /* ── PDF BUTTON ── */
+    .pdf-link {
+      display: inline-block;
+      margin: 0.5rem 0 1.5rem;
+      padding: 0.5rem 1.2rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .pdf-link:hover { background: var(--accent-light); }
+
+    /* ── SECTION ── */
+    section { margin-bottom: 2.2rem; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .section-rule {
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .subsection-title {
+      font-size: 13px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--accent);
+      margin: 1rem 0 4px;
+    }
+    .subsection-rule {
+      height: 1px;
+      background: var(--rule-light);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── ENTRY (education, experience) ── */
+    .entry { margin-bottom: 0.9rem; }
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .entry-title { font-weight: 700; font-size: 14px; color: var(--text); }
+    .entry-date { font-size: 13px; font-weight: 300; color: var(--subtext); white-space: nowrap; }
+    .entry-sub { font-size: 13px; font-weight: 300; font-style: italic; color: var(--subtext); }
+    .entry-bullets { margin-top: 0.25rem; padding-left: 1.2rem; font-size: 13px; }
+    .entry-bullets li { margin-bottom: 2px; }
+
+    /* ── TABLE-STYLE ROWS (grants, service) ── */
+    .cv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .cv-table tr { border-bottom: 1px solid #eee; }
+    .cv-table tr:last-child { border-bottom: none; }
+    .cv-table td { padding: 5px 8px 5px 0; vertical-align: top; }
+    .cv-table td:first-child { font-weight: 700; min-width: 50px; }
+    .cv-table td:last-child { color: var(--subtext); font-style: italic; text-align: right; white-space: nowrap; padding-right: 0; }
+    .cv-table .amount { color: var(--subtext); }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { list-style: none; padding: 0; }
+    .pub-list li {
+      font-size: 13px;
+      padding: 5px 0 5px 2em;
+      text-indent: -2em;
+      border-bottom: 1px solid #eee;
+      line-height: 1.6;
+    }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-num { font-weight: 700; color: var(--accent); margin-right: 0.4em; }
+
+    /* ── PRESENTATIONS ── */
+    .pres-list { list-style: none; padding: 0; }
+    .pres-list li {
+      font-size: 13px;
+      padding: 5px 0 5px 2em;
+      text-indent: -2em;
+      border-bottom: 1px solid #eee;
+      line-height: 1.6;
+    }
+    .pres-list li:last-child { border-bottom: none; }
+    .pres-year { font-weight: 700; color: var(--accent); }
+
+    /* ── COURSE LIST ── */
+    .course-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3px 1rem;
+      font-size: 13px;
+    }
+    .course-code { font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .course-name { color: var(--text); }
+
+    /* ── MENTORING ── */
+    .mentor-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .mentor-table tr { border-bottom: 1px solid #eee; }
+    .mentor-table tr:last-child { border-bottom: none; }
+    .mentor-table td { padding: 5px 8px 5px 0; vertical-align: top; }
+    .mentor-table td:first-child { font-weight: 300; color: var(--subtext); white-space: nowrap; min-width: 44px; }
+    .mentor-table td:nth-child(2) { font-weight: 700; }
+    .mentor-table td:last-child { color: var(--subtext); font-style: italic; }
+
+    /* ── MEMBERSHIPS ── */
+    .membership-list { list-style: none; padding: 0; }
+    .membership-list li {
+      font-size: 13px;
+      padding: 4px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+    .membership-list li:last-child { border-bottom: none; }
+    .membership-list .mem-dates { color: var(--subtext); font-weight: 300; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule-light);
+      font-size: 12px;
+      color: var(--subtext);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .header-top { flex-direction: column-reverse; }
+      .header-photo img { width: 80px; }
+      .entry-head { flex-direction: column; gap: 0; }
+      nav { gap: 1rem; padding: 0 1rem; }
+      .page { padding: 1.5rem 1rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Ronald J. Tackett, Ph.D.</span>
+  <a href="cv.html" class="active">CV</a>
+  <a href="teaching.html">Teaching</a>
+  <a href="admin.html">Administration</a>
+  <a href="ai.html">AI Statement</a>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div class="header-name">
+        <h1>Ronald J. <strong>Tackett, Ph.D.</strong></h1>
+        <p class="title">Founding Head, School of Foundational Studies &middot; Associate Professor of Physics</p>
+        <p class="institution">Kettering University &middot; 1700 University Ave, Flint, MI 48504</p>
+      </div>
+      <div class="header-photo">
+        <img src="headshot.png" alt="Ronald J. Tackett, Ph.D.">
+      </div>
+    </div>
+    <div class="header-contact">
+      <a href="mailto:rtackett@kettering.edu">rtackett@kettering.edu</a>
+      <span>+1 248-921-6918</span>
+      <a href="https://linkedin.com/in/rtackett30/" target="_blank">linkedin.com/in/rtackett30</a>
+      <a href="https://rtackett1978.wordpress.com" target="_blank">rtackett1978.wordpress.com</a>
+    </div>
+  </header>
+
+  <a class="pdf-link" href="#">&#8595; Download Full CV (PDF)</a>
+
+  <!-- EDUCATION -->
+  <section>
+    <p class="section-title">Education</p>
+    <div class="section-rule"></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Ph.D., Condensed Matter Physics</span>
+        <span class="entry-date">2003&ndash;2008</span>
+      </div>
+      <p class="entry-sub">Wayne State University &middot; Detroit, MI</p>
+      <ul class="entry-bullets">
+        <li>Dissertation: <em>The Synthesis, Characterization, and Application of Multifunctional Magnetic Nanoparticles</em></li>
+        <li>Advisor: Dr. Gavin Lawes</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">B.S., Engineering Physics</span>
+        <span class="entry-date">2001&ndash;2003</span>
+      </div>
+      <p class="entry-sub">Eastern Michigan University &middot; Ypsilanti, MI</p>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section>
+    <p class="section-title">Professional Experience</p>
+    <div class="section-rule"></div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Founding Head (Dean-Equivalent), School of Foundational Studies</span>
+        <span class="entry-date">2025&ndash;present</span>
+      </div>
+      <p class="entry-sub">Kettering University &middot; Flint, MI</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Adjunct (Volunteer) Associate Professor of Physics</span>
+        <span class="entry-date">2025&ndash;present</span>
+      </div>
+      <p class="entry-sub">Wayne State University &middot; Detroit, MI</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Associate Professor of Physics</span>
+        <span class="entry-date">2019&ndash;present</span>
+      </div>
+      <p class="entry-sub">Kettering University &middot; Flint, MI</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Assistant Professor of Physics</span>
+        <span class="entry-date">2014&ndash;2019</span>
+      </div>
+      <p class="entry-sub">Kettering University &middot; Flint, MI</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Assistant Professor of Physics</span>
+        <span class="entry-date">2010&ndash;2014</span>
+      </div>
+      <p class="entry-sub">Arkansas Tech University &middot; Russellville, AR</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Postdoctoral Research Associate</span>
+        <span class="entry-date">2008&ndash;2010</span>
+      </div>
+      <p class="entry-sub">University of Texas at El Paso &middot; El Paso, TX</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Graduate Research Assistant</span>
+        <span class="entry-date">2004&ndash;2008</span>
+      </div>
+      <p class="entry-sub">Wayne State University &middot; Detroit, MI</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Graduate Teaching Assistant</span>
+        <span class="entry-date">2003&ndash;2004</span>
+      </div>
+      <p class="entry-sub">Wayne State University &middot; Detroit, MI</p>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section>
+    <p class="section-title">Awards, Fellowships, &amp; Grants</p>
+    <div class="section-rule"></div>
+    <table class="cv-table">
+      <tr><td>2025</td><td>Distinguished Service Award</td><td>Kettering University</td></tr>
+      <tr><td>2024</td><td>Strategic Investment Grant (Co-PI)</td><td>Michigan Economic Development Corporation &middot; $320,882</td></tr>
+      <tr><td>2018</td><td>Outstanding New Research Award</td><td>Kettering University</td></tr>
+      <tr><td>2017</td><td>Provost&rsquo;s Research Matching Fund</td><td>Kettering University &middot; $1,500</td></tr>
+      <tr><td>2016</td><td>Faculty Research Fellowship</td><td>Kettering University &middot; $6,000</td></tr>
+      <tr><td>2016</td><td>Provost&rsquo;s Matching Fund</td><td>Kettering University &middot; $1,500</td></tr>
+      <tr><td>2016</td><td>Provost&rsquo;s Travel Fund</td><td>Kettering University &middot; $1,200</td></tr>
+      <tr><td>2015</td><td>Major Research Instrumentation (NSF #1531402)</td><td>National Science Foundation &middot; $452,000</td></tr>
+      <tr><td>2015</td><td>Provost&rsquo;s Travel Fund</td><td>Kettering University &middot; $1,200</td></tr>
+      <tr><td>2014</td><td>Faculty Research Fellowship</td><td>Kettering University &middot; $6,000</td></tr>
+      <tr><td>2013</td><td>Junior Science and Humanities Symposium</td><td>The Academy of Applied Science &middot; $14,300</td></tr>
+      <tr><td>2013</td><td>Undergraduate Research Award</td><td>Arkansas Tech University &middot; $2,000</td></tr>
+      <tr><td>2012</td><td>Junior Science and Humanities Symposium</td><td>The Academy of Applied Science &middot; $14,300</td></tr>
+      <tr><td>2012</td><td>Arkansas Space Grant Symposium</td><td>NASA &middot; $2,500</td></tr>
+      <tr><td>2011</td><td>Arkansas Space Grant Symposium</td><td>NASA &middot; $2,000</td></tr>
+      <tr><td>2010</td><td>Undergraduate Research Award</td><td>Arkansas Tech University &middot; $3,300</td></tr>
+    </table>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section>
+    <p class="section-title">Publications</p>
+    <div class="section-rule"></div>
+    <ol class="pub-list">
+      <li><span class="pub-num">1.</span> B.R. Dahal, K. Schroeder, M.M. Allyn, <strong>R.J. Tackett</strong>, Y. Huh, and P. Kharel. &ldquo;Near-room-temperature magnetocaloric properties of La<sub>1&minus;x</sub>Sr<sub>x</sub>MnO<sub>3</sub> nanoparticles.&rdquo; <em>Materials Research Express</em> <strong>5</strong>, 106103 (2018).</li>
+      <li><span class="pub-num">2.</span> <strong>R.J. Tackett</strong>, J. Thakur, N. Mosher, E. Perkins-Harbin, R.E. Kumon, L. Wang, C. Rablau, and P.P. Vaishnava. &ldquo;A method for measuring the N&eacute;el relaxation time in a frozen ferrofluid.&rdquo; <em>Journal of Applied Physics</em> <strong>118(6)</strong>, 064701 (2015).</li>
+      <li><span class="pub-num">3.</span> Y.C.N. Chen, C.Y. Hsieh, <strong>R. Tackett</strong>, P. Kokeny, R.K. Regmi, and G. Lawes. &ldquo;Magnetic moment quantifications of small spherical objects in MRI.&rdquo; <em>Magnetic Resonance Imaging</em> <strong>33(6)</strong>, 829 (2015).</li>
+      <li><span class="pub-num">4.</span> C.E. Botez, A.H. Adair, and <strong>R.J. Tackett</strong>. &ldquo;Evidence of superspin-glass behavior in Zn<sub>0.5</sub>Ni<sub>0.5</sub>Fe<sub>2</sub>O<sub>4</sub> nanoparticles.&rdquo; <em>Journal of Physics: Condensed Matter</em> <strong>27(7)</strong>, 076005 (2015).</li>
+      <li><span class="pub-num">5.</span> S.S. Laha, <strong>R.J. Tackett</strong>, and G. Lawes. &ldquo;Interactions in &gamma;-Fe<sub>2</sub>O<sub>3</sub> and Fe<sub>3</sub>O<sub>4</sub> nanoparticle systems.&rdquo; <em>Physica B</em> <strong>448</strong>, 69 (2014).</li>
+      <li><span class="pub-num">6.</span> C.E. Botez, <strong>R.J. Tackett</strong>, J.D. Hermosillo, J.Z. Zhang, Y.S. Zho, and L.P. Wang. &ldquo;High-pressure synchrotron x-ray diffraction studies of superprotonic transitions in phosphate solid acids.&rdquo; <em>Solid State Ionics</em> <strong>213</strong>, 58 (2012).</li>
+      <li><span class="pub-num">7.</span> <strong>R. Tackett</strong>, G. Lawes, R. Suryanarayanan, M. Apostu, and A. Revcolevschi. &ldquo;The zero-field glassy ground state and field-induced ferromagnetic transition in (La<sub>0.4</sub>Pr<sub>0.6</sub>)<sub>1.2</sub>Sr<sub>1.8</sub>Mn<sub>2</sub>O<sub>7</sub>.&rdquo; <em>Journal of Physics: Condensed Matter</em> <strong>23</strong>, 156004 (2011).</li>
+      <li><span class="pub-num">8.</span> K.K. Bharathi, <strong>R.J. Tackett</strong>, C.E. Botez, and C.V. Ramana. &ldquo;Coexistence of spin glass behavior and long range ferromagnetic ordering in La- and Hy-doped Co ferrite.&rdquo; <em>Journal of Applied Physics</em> <strong>109</strong>, 07A510 (2011).</li>
+      <li><span class="pub-num">9.</span> C.E. Botez, A.W. Bhuiya, and <strong>R.J. Tackett</strong>. &ldquo;Dynamic-susceptibility studies of the interplay between the N&eacute;el and Brown magnetic relaxation mechanisms.&rdquo; <em>Applied Physics A</em> <strong>104</strong>, 177 (2011).</li>
+      <li><span class="pub-num">10.</span> C.E. Botez, D. Carbajal, K. Adiraju, and <strong>R.J. Tackett</strong>. &ldquo;Intermediate-temperature polymorphic phase transition in KH<sub>2</sub>PO<sub>4</sub>.&rdquo; <em>Journal of Physics and Chemistry of Solids</em> <strong>71</strong>, 1576 (2010).</li>
+      <li><span class="pub-num">11.</span> <strong>R.J. Tackett</strong>, J.G. Parsons, B.I. Machado, S. Gaytan, L.E. Murr, and C.E. Botez. &ldquo;Evidence of low-temperature superparamagnetism in Mn<sub>3</sub>O<sub>4</sub> nanoparticle ensembles.&rdquo; <em>Nanotechnology</em> <strong>21</strong>, 265703 (2010).</li>
+      <li><span class="pub-num">12.</span> <strong>R.J. Tackett</strong>, A.W. Bhuiya, and C.E. Botez. &ldquo;Dynamic susceptibility evidence of surface spin freezing in ultrafine NiFe<sub>2</sub>O<sub>4</sub> nanoparticles.&rdquo; <em>Nanotechnology</em> <strong>20</strong>, 445705 (2009).</li>
+      <li><span class="pub-num">13.</span> C.E. Botez, H. Martinez, <strong>R.J. Tackett</strong>, R.R. Chianelli, J. Zhang, and Y. Zhao. &ldquo;High-temperature crystal structures and chemical modifications in RbH<sub>2</sub>PO<sub>4</sub>.&rdquo; <em>Journal of Physics: Condensed Matter</em> <strong>21</strong>, 325401 (2009).</li>
+      <li><span class="pub-num">14.</span> K. Senevirathne, <strong>R. Tackett</strong>, P.R. Kharel, G. Lawes, K. Somaskandan, and S.L. Brock. &ldquo;Discrete, dispersible MnAs nanocrystals from solution methods.&rdquo; <em>ACS Nano</em> <strong>3</strong>, 1129 (2009).</li>
+      <li><span class="pub-num">15.</span> R. Regmi, <strong>R. Tackett</strong>, and G. Lawes. &ldquo;Suppression of low-temperature magnetic states in Mn<sub>3</sub>O<sub>4</sub> nanoparticles.&rdquo; <em>Journal of Magnetism and Magnetic Materials</em> <strong>321</strong>, 2296 (2009).</li>
+      <li><span class="pub-num">16.</span> B.C. Melot, <strong>R. Tackett</strong>, J. O&rsquo;Brien, A.L. Hector, G. Lawes, R. Seshadri, and A.P. Ramirez. &ldquo;Large low-temperature specific heat in pyrochlore Bi<sub>2</sub>Ti<sub>2</sub>O<sub>4</sub>.&rdquo; <em>Physical Review B</em> <strong>79</strong>, 224111 (2009).</li>
+      <li><span class="pub-num">17.</span> S. Putatunda, A. Singer, <strong>R. Tackett</strong>, and G. Lawes. &ldquo;Development of a high-strength, high-toughness ausferritic steel.&rdquo; <em>Metallurgical and Materials Transactions A</em> <strong>513&ndash;514</strong>, 329 (2009).</li>
+      <li><span class="pub-num">18.</span> Y. Shen, Y.C.N. Cheng, G. Lawes, J. Neelavalli, C. Sudakar, <strong>R. Tackett</strong>, H.P. Ramanth, and E.M. Haacke. &ldquo;Quantifying magnetic nanoparticles in non-steady flow by MRI.&rdquo; <em>Magnetic Resonance Materials in Physics</em> <strong>21</strong>, 345 (2008).</li>
+      <li><span class="pub-num">19.</span> C. Rablau, P.P. Vaishnava, C. Sudakar, <strong>R. Tackett</strong>, G. Lawes, and R. Naik. &ldquo;Magnetic field induced optical anisotropy in ferrofluids.&rdquo; <em>Physical Review E</em> <strong>78</strong>, 051502 (2008).</li>
+      <li><span class="pub-num">20.</span> <strong>R. Tackett</strong>, C. Sudakar, R. Naik, G. Lawes, C. Rablau, and P.P. Vaishnava. &ldquo;Magnetic and optical response of tuning the magnetocrystalline anisotropy in Fe<sub>3</sub>O<sub>4</sub> ferrofluids by Co doping.&rdquo; <em>Journal of Magnetism and Magnetic Materials</em> <strong>320</strong>, 2755 (2008).</li>
+      <li><span class="pub-num">21.</span> S. Singh, R. Suryanarayanan, <strong>R. Tackett</strong>, G. Lawes, A.K. Sood, P. Berthet, and A. Revcolevschi. &ldquo;Spin-ice state in the geometrically frustrated metallic-ferromagnet Sm<sub>2</sub>Mo<sub>2</sub>O<sub>7</sub>.&rdquo; <em>Physical Review B</em> <strong>77</strong>, 054408 (2008).</li>
+      <li><span class="pub-num">22.</span> P.P. Vaishnava, <strong>R. Tackett</strong>, A. Dixit, C. Sudakar, R. Naik, and G. Lawes. &ldquo;Magnetic relaxation and dissipative heating in ferrofluids.&rdquo; <em>Journal of Applied Physics</em> <strong>102</strong>, 063914 (2007).</li>
+      <li><span class="pub-num">23.</span> <strong>R. Tackett</strong>, G. Lawes, B.C. Melot, M. Grossman, E.S. Toberer, and G. Lawes. &ldquo;Magnetodielectric coupling in Mn<sub>3</sub>O<sub>4</sub>.&rdquo; <em>Physical Review B</em> <strong>76</strong>, 024409 (2007).</li>
+      <li><span class="pub-num">24.</span> J. Cao, R.C. Rai, S. Brown, J. Musfeldt, <strong>R. Tackett</strong>, G. Lawes, Y. Wang, X. Wei, M. Apostu, R. Suryanarayanan, and A. Revcolevschi. &ldquo;Observation of 300 K high energy magnetodielectric response in (La<sub>0.4</sub>Pr<sub>0.6</sub>)<sub>1.2</sub>Sr<sub>1.8</sub>Mn<sub>2</sub>O<sub>7</sub>.&rdquo; <em>Applied Physics Letters</em> <strong>91</strong>, 021913 (2007).</li>
+      <li><span class="pub-num">25.</span> S.K. Putatunda, S. Kesani, <strong>R. Tackett</strong>, and G. Lawes. &ldquo;Development of austenite-free ADI.&rdquo; <em>Materials Science and Engineering A</em> <strong>435&ndash;436</strong>, 112 (2006).</li>
+      <li><span class="pub-num">26.</span> G. Lawes, <strong>R. Tackett</strong>, O. Masala, B. Adhikary, R. Naik, and R. Seshadri. &ldquo;Positive and negative magnetocapacitance in magnetic nanoparticle systems.&rdquo; <em>Applied Physics Letters</em> <strong>88</strong>, 242903 (2006).</li>
+      <li><span class="pub-num">27.</span> G. Tsoi, U. Seneratne, <strong>R. Tackett</strong>, E. Buc, R. Naik, P. Vaishnava, V. Naik, and L. Wenger. &ldquo;Memory effects and magnetic interactions in &gamma;-Fe<sub>2</sub>O<sub>3</sub> nanoparticle system.&rdquo; <em>Journal of Applied Physics</em> <strong>97(10)</strong>, 10J507 (2005).</li>
+      <li><span class="pub-num">28.</span> G. Tsoi, L. Wenger, U. Seneratne, <strong>R. Tackett</strong>, E. Buc, R. Naik, P. Vaishnava, and V. Naik. &ldquo;Memory effects in a superparamagnetic &gamma;-Fe<sub>2</sub>O<sub>3</sub> system.&rdquo; <em>Physical Review B</em> <strong>72</strong>, 014445 (2005).</li>
+    </ol>
+  </section>
+
+  <!-- PRESENTATIONS -->
+  <section>
+    <p class="section-title">Presentations</p>
+    <div class="section-rule"></div>
+
+    <p class="subsection-title">Invited Talks</p>
+    <div class="subsection-rule"></div>
+    <ul class="pres-list">
+      <li><span class="pres-year">2024.</span> <em>A Journey Through Innovation and Impact: How Semiconductors Revolutionized the World.</em> Longway Planetarium, Flint, MI.</li>
+      <li><span class="pres-year">2023.</span> <em>Through the Looking Glass: A Discussion of the Art of Microscopy.</em> Longway Planetarium, Flint, MI.</li>
+      <li><span class="pres-year">2019.</span> <em>Specialization and Optimization of Metal-Oxide Nanoparticles for Use in the Magnetic Hyperthermia Treatment of Cancer.</em> Fall Meeting, Midland Section, ACS, Saginaw Valley State University, Saginaw, MI.</li>
+      <li><span class="pres-year">2018.</span> <em>Tuesday Teaching Talk: EndNote.</em> Center for Excellence in Teaching and Learning, Kettering University, Flint, MI.</li>
+      <li><span class="pres-year">2017.</span> <em>Through the Magnetic Lens: A Discussion of Electron Microscopy.</em> Science on Tap, Tenacity Brewing Company, Flint, MI.</li>
+      <li><span class="pres-year">2016.</span> <em>Treating Big Problems with Small Things: Applications of Magnetic Nanoparticles.</em> Gavin Lawes Memorial Symposium, Wayne State University, Detroit, MI.</li>
+      <li><span class="pres-year">2016.</span> <em>Treating Big Problems with Small Things: Applications of Magnetic Nanoparticles.</em> SPS Guest Lecture Series, Lawrence Technological University, Southfield, MI.</li>
+      <li><span class="pres-year">2015.</span> <em>Treating Big Problems with Small Things: Applications of Magnetic Nanoparticles.</em> Distinguished Faculty Series, Kettering University, Flint, MI.</li>
+      <li><span class="pres-year">2014.</span> <em>Magnetic Fluid Hyperthermia Treatment of Cancer using Dextran-Coated Fe<sub>3</sub>O<sub>4</sub> Nanoparticles.</em> Solid State Physics Seminar, Wayne State University, Detroit, MI.</li>
+      <li><span class="pres-year">2009.</span> <em>It&rsquo;s a Small World After All: Characterization and Applications of Magnetic Nanoparticles.</em> University of Texas at El Paso, El Paso, TX.</li>
+      <li><span class="pres-year">2009.</span> <em>High Temperature Phase Transitions in CsH<sub>2</sub>PO<sub>4</sub> and RbH<sub>2</sub>PO<sub>4</sub>.</em> New Mexico State University, Las Cruces, NM.</li>
+      <li><span class="pres-year">2006.</span> <em>The Synthesis and Characterization of Magnetic Nanoparticles.</em> Universit&eacute; Paris-Sud, Orsay, France.</li>
+    </ul>
+
+    <p class="subsection-title">Contributed Presentations</p>
+    <div class="subsection-rule"></div>
+    <ul class="pres-list">
+      <li>J. Wylie and <strong>R.J. Tackett</strong>. 2019. Synthesis and Characterization of Gadolinium-Doped Magnetite. Fall Meeting, Eastern Great Lakes Section, APS, Kettering University, Flint, MI.</li>
+      <li>J. Wylie and <strong>R.J. Tackett</strong>. 2019. Synthesis and Characterization of Gadolinium-Doped Magnetite. MASAL, Alma College, Alma, MI.</li>
+      <li>M. Warteman and <strong>R.J. Tackett</strong>. 2019. Effects of Doping Concentration in the Sol-Gel Synthesis of Strontium-Doped Lanthanum Manganate. MASAL, Alma College, Alma, MI.</li>
+      <li><strong>R.J. Tackett</strong>, M.M. Allyn, V.K. Garg, A.C. de Oliveira, and P.P. Vaishnava. 2017. Determination of the Magnetocrystalline Anisotropy Constant. Spring Meeting, Ohio Section, APS, Eastern Michigan University, Ypsilanti, MI.</li>
+      <li>M.M. Allyn, P. Kharel, P.P. Vaishnava, and <strong>R.J. Tackett</strong>. 2017. Smart Magnetic Nanoparticles for the Hyperthermia Treatment of Cancer. Spring Meeting, Ohio Section, APS, Eastern Michigan University, Ypsilanti, MI.</li>
+      <li><strong>R.J. Tackett</strong> et al. 2016. Determination of the Magnetocrystalline Anisotropy Constant. March Meeting, APS, Baltimore, MD.</li>
+      <li>M.M. Allyn, P. Kharel, P.P. Vaishnava, and <strong>R.J. Tackett</strong>. 2016. Smart Magnetic Nanoparticles for the Hyperthermia Treatment of Cancer. March Meeting, APS, Baltimore, MD; MASAL, Saginaw Valley State University, Saginaw, MI.</li>
+      <li>N. Mosher et al. and <strong>R.J. Tackett</strong>. 2015. Magnetocrystalline Anisotropy Constant from Frequency-Dependence of SAR in a Frozen Ferrofluid. March Meeting, APS, San Antonio, TX.</li>
+      <li>J.S. Pennington and <strong>R.J. Tackett</strong>. 2013. Variant Crystal Lattice Structure of &gamma;-Fe<sub>2</sub>O<sub>3</sub> in Alginate Polymer Matrix. Arkansas Space Grant Consortium, Morrilton, AR; Arkansas Academy of Science, Little Rock, AR.</li>
+      <li>J.D. Counts and <strong>R.J. Tackett</strong>. 2012&ndash;2013. Particle Size Dependence of Superparamagnetic Blocking in Fe<sub>3</sub>O<sub>4</sub> Nanoparticles. Multiple venues, AR.</li>
+      <li>J.C. Smith and <strong>R.J. Tackett</strong>. 2011. Simulation of Powder X-Ray Diffraction Using Spherical Colloids. Arkansas Academy of Science, Monticello, AR.</li>
+      <li><strong>R.J. Tackett</strong>, H. Martinez, R.R. Chianelli, J. Zhang, Y. Zhao, and C.E. Botez. 2010. High-Temperature Crystal Structures in RbH<sub>2</sub>PO<sub>4</sub>. March Meeting, APS, Portland, OR.</li>
+      <li>C. Rablau et al. and <strong>R. Tackett</strong>. 2008. Tuning Magnetocrystalline Anisotropy in Co<sub>x</sub>Fe<sub>3&minus;x</sub>O<sub>4</sub> Nanoparticles. March Meeting, APS, New Orleans, LA.</li>
+      <li><strong>R. Tackett</strong>, E. Toberer, R. Seshadri, and G. Lawes. 2007. Magnetodielectric Coupling in Mn<sub>3</sub>O<sub>4</sub>. March Meeting, APS, Denver, CO.</li>
+      <li><strong>R. Tackett</strong>, O. Masala, B. Adhikary, R. Naik, A.P. Ramirez, R. Seshadri, and G. Lawes. 2006. Coupling of Magnetic and Dielectric Properties in Magnetic Nanoparticles. March Meeting, APS, Los Angeles, CA.</li>
+    </ul>
+  </section>
+
+  <!-- TEACHING -->
+  <section>
+    <p class="section-title">Teaching Experience</p>
+    <div class="section-rule"></div>
+
+    <p class="subsection-title">Kettering University</p>
+    <div class="subsection-rule"></div>
+    <div class="course-grid">
+      <span class="course-code">SCI-100</span><span class="course-name">Introduction to Semiconductors</span>
+      <span class="course-code">EP-342</span><span class="course-name">Introduction to Material Science &amp; Engineering</span>
+      <span class="course-code">EP-446</span><span class="course-name">Solid State Physics</span>
+      <span class="course-code">MATH-100</span><span class="course-name">College Mathematics</span>
+      <span class="course-code">PHYS-114</span><span class="course-name">Newtonian Mechanics</span>
+      <span class="course-code">PHYS-115</span><span class="course-name">Newtonian Mechanics Laboratory</span>
+      <span class="course-code">PHYS-224</span><span class="course-name">Electricity &amp; Magnetism</span>
+      <span class="course-code">PHYS-225</span><span class="course-name">Electricity &amp; Magnetism Laboratory</span>
+      <span class="course-code">PHYS-304</span><span class="course-name">The Science of Sensors</span>
+      <span class="course-code">PHYS-452</span><span class="course-name">Thermodynamics &amp; Statistical Physics</span>
+      <span class="course-code">PHYS-462</span><span class="course-name">Quantum Mechanics</span>
+    </div>
+
+    <p class="subsection-title">Arkansas Tech University</p>
+    <div class="subsection-rule"></div>
+    <div class="course-grid">
+      <span class="course-code">PHSC-1013</span><span class="course-name">Introduction to Physical Science</span>
+      <span class="course-code">PHSC-1021</span><span class="course-name">Physical Science Laboratory</span>
+      <span class="course-code">PHYS-2000</span><span class="course-name">Physics Laboratory I</span>
+      <span class="course-code">PHYS-2010</span><span class="course-name">Physics Laboratory II</span>
+      <span class="course-code">PHYS-2014</span><span class="course-name">Algebra-Based Physics I</span>
+      <span class="course-code">PHYS-2024</span><span class="course-name">Algebra-Based Physics II</span>
+      <span class="course-code">PHYS-2114</span><span class="course-name">Calculus-Based Physics I</span>
+      <span class="course-code">PHYS-2124</span><span class="course-name">Calculus-Based Physics II</span>
+      <span class="course-code">PHYS-3153</span><span class="course-name">Solid State Physics</span>
+      <span class="course-code">PHYS-4113</span><span class="course-name">Advanced Physics Laboratory</span>
+    </div>
+  </section>
+
+  <!-- MENTORING -->
+  <section>
+    <p class="section-title">Research Mentoring</p>
+    <div class="section-rule"></div>
+    <table class="mentor-table">
+      <tr><td>2021</td><td>Bradley Henry</td><td>Senior Research Thesis, Kettering University</td></tr>
+      <tr><td>2020</td><td>Joshua Wiley</td><td>Senior Research Thesis, Kettering University</td></tr>
+      <tr><td>2019</td><td>Przemyslaw Piotrowski</td><td>Senior Research Thesis, Kettering University</td></tr>
+      <tr><td>2018</td><td>Megan Allyn</td><td>Senior Research Thesis, Kettering University</td></tr>
+      <tr><td>2013</td><td>Joy Counts</td><td>Undergraduate Research Assistant, Arkansas Tech University</td></tr>
+      <tr><td>2012</td><td>Joshua Pennington</td><td>Undergraduate Research Assistant, Arkansas Tech University</td></tr>
+    </table>
+  </section>
+
+  <!-- SERVICE -->
+  <section>
+    <p class="section-title">Service</p>
+    <div class="section-rule"></div>
+
+    <p class="subsection-title">Service to the Field</p>
+    <div class="subsection-rule"></div>
+    <table class="cv-table">
+      <tr><td>2025&ndash;2026</td><td>Chair, Eastern Great Lakes Section</td><td>American Physical Society</td></tr>
+      <tr><td>2025&ndash;pres.</td><td>Advocacy Champion</td><td>American Physical Society</td></tr>
+      <tr><td>2024&ndash;2025</td><td>Chair-Elect, Eastern Great Lakes Section</td><td>American Physical Society</td></tr>
+      <tr><td>2023&ndash;2024</td><td>Vice Chair, Eastern Great Lakes Section</td><td>American Physical Society</td></tr>
+      <tr><td>2023</td><td>Review Panelist (P232162)</td><td>National Science Foundation</td></tr>
+      <tr><td>2021&ndash;pres.</td><td>Reviewer</td><td>AIP Advances</td></tr>
+      <tr><td>2020&ndash;pres.</td><td>Reviewer</td><td>Journal of Alloys and Compounds (Elsevier)</td></tr>
+      <tr><td>2018&ndash;pres.</td><td>Reviewer</td><td>American Journal of Physics (AAPT)</td></tr>
+      <tr><td>2017&ndash;2020</td><td>Reviewer</td><td>NSF Graduate Research Fellowship Program</td></tr>
+      <tr><td>2017&ndash;pres.</td><td>Reviewer</td><td>The Physics Teacher (AAPT)</td></tr>
+      <tr><td>2016&ndash;2017</td><td>Reviewer</td><td>National Defense Science &amp; Engineering Graduate Fellowship</td></tr>
+    </table>
+
+    <p class="subsection-title">Service to the University</p>
+    <div class="subsection-rule"></div>
+    <table class="cv-table">
+      <tr><td>2025</td><td>Reviewer, President&rsquo;s Medal Nominations</td><td>Kettering University</td></tr>
+      <tr><td>2024&ndash;2025</td><td>Founding Chair, Instructional Technology Advisory Committee</td><td>Kettering University</td></tr>
+      <tr><td>2024&ndash;2025</td><td>Moderator, Faculty Senate</td><td>Kettering University</td></tr>
+      <tr><td>2023&ndash;2024</td><td>Moderator-Elect, Faculty Senate</td><td>Kettering University</td></tr>
+      <tr><td>2022&ndash;2023</td><td>Member, Employee Satisfaction &amp; Fulfillment Working Group</td><td>Kettering University</td></tr>
+      <tr><td>2020&ndash;2023</td><td>Senator (Natural Sciences), Faculty Senate</td><td>Kettering University</td></tr>
+      <tr><td>2020&ndash;2023</td><td>Chair, Faculty Senate Thesis Committee</td><td>Kettering University</td></tr>
+      <tr><td>2019&ndash;2020</td><td>Secretary, Faculty Senate</td><td>Kettering University</td></tr>
+      <tr><td>2019&ndash;2025</td><td>Member, Advisory Board for Excellence in Teaching &amp; Learning</td><td>Kettering University</td></tr>
+      <tr><td>2016&ndash;2018</td><td>Member, University Curriculum Committee</td><td>Kettering University</td></tr>
+    </table>
+
+    <p class="subsection-title">Service to the Community</p>
+    <div class="subsection-rule"></div>
+    <table class="cv-table">
+      <tr><td>2026</td><td>Commencement Speaker</td><td>Livonia Stevenson High School</td></tr>
+      <tr><td>2025&ndash;pres.</td><td>Volunteer (Pit/Props)</td><td>Grand Blanc High School Marching Band</td></tr>
+      <tr><td>2025</td><td>Facilitator, Quantum Science Workshop</td><td>Genesee Career Institute</td></tr>
+      <tr><td>2020&ndash;2023</td><td>Secretary, Brendel Elementary PTO</td><td>Grand Blanc, MI</td></tr>
+      <tr><td>2020</td><td>Member, Zero-Mil Increase Bond Committee</td><td>Grand Blanc Community Schools</td></tr>
+      <tr><td>2019, 2020</td><td>Presenter, Career Day</td><td>Brendel Elementary School, Grand Blanc, MI</td></tr>
+    </table>
+
+    <p class="subsection-title">Professional Society Membership</p>
+    <div class="subsection-rule"></div>
+    <ul class="membership-list">
+      <li><span>American Physical Society (APS)</span><span class="mem-dates">2008&ndash;present</span></li>
+      <li><span>American Association of Physics Teachers (AAPT)</span><span class="mem-dates">2015&ndash;present</span></li>
+      <li><span>American Association for the Advancement of Science (AAAS)</span><span class="mem-dates">2019&ndash;present</span></li>
+      <li><span>Materials Research Society (MRS)</span><span class="mem-dates">2019&ndash;2021</span></li>
+      <li><span>Advanced Laboratory Physics Association (ALPhA)</span><span class="mem-dates">2019&ndash;present</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Ronald J. Tackett, Ph.D. &middot; Kettering University</span>
+    <span>Last updated: March 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
