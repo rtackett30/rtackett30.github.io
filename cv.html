@@ -15,6 +15,8 @@
     :root {
       --accent: #2E4057;
       --accent-light: #4a6080;
+      --orange: #D4681E;
+      --orange-light: #e07b30;
       --gold: #c8a040;
       --text: #1a1a1a;
       --subtext: #555;
@@ -55,7 +57,7 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    nav a:hover, nav a.active { color: #fff; }
+    nav a:hover, nav a.active { color: var(--orange-light); }
     nav .nav-name {
       color: #fff;
       font-weight: 500;
@@ -115,7 +117,7 @@
       font-size: 13px;
       color: var(--subtext);
     }
-    .header-contact a { color: var(--accent); text-decoration: none; }
+    .header-contact a { color: var(--orange); text-decoration: none; }
     .header-contact a:hover { text-decoration: underline; }
 
     /* ── PDF BUTTON ── */
@@ -143,7 +145,7 @@
     }
     .section-rule {
       height: 2px;
-      background: var(--accent);
+      background: var(--orange);
       margin-bottom: 1rem;
     }
     .subsection-title {
@@ -155,7 +157,7 @@
     }
     .subsection-rule {
       height: 1px;
-      background: var(--rule-light);
+      background: rgba(212,104,30,0.3);
       margin-bottom: 0.75rem;
     }
 
@@ -178,7 +180,7 @@
     .cv-table tr { border-bottom: 1px solid #eee; }
     .cv-table tr:last-child { border-bottom: none; }
     .cv-table td { padding: 5px 8px 5px 0; vertical-align: top; }
-    .cv-table td:first-child { font-weight: 700; min-width: 50px; }
+    .cv-table td:first-child { font-weight: 700; min-width: 50px; color: var(--orange); }
     .cv-table td:last-child { color: var(--subtext); font-style: italic; text-align: right; white-space: nowrap; padding-right: 0; }
     .cv-table .amount { color: var(--subtext); }
 
@@ -192,7 +194,7 @@
       line-height: 1.6;
     }
     .pub-list li:last-child { border-bottom: none; }
-    .pub-num { font-weight: 700; color: var(--accent); margin-right: 0.4em; }
+    .pub-num { font-weight: 700; color: var(--orange); margin-right: 0.4em; }
 
     /* ── PRESENTATIONS ── */
     .pres-list { list-style: none; padding: 0; }
@@ -204,7 +206,7 @@
       line-height: 1.6;
     }
     .pres-list li:last-child { border-bottom: none; }
-    .pres-year { font-weight: 700; color: var(--accent); }
+    .pres-year { font-weight: 700; color: var(--orange); }
 
     /* ── COURSE LIST ── */
     .course-grid {
@@ -213,7 +215,7 @@
       gap: 3px 1rem;
       font-size: 13px;
     }
-    .course-code { font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .course-code { font-weight: 700; color: var(--orange); white-space: nowrap; }
     .course-name { color: var(--text); }
 
     /* ── MENTORING ── */
