@@ -55,7 +55,7 @@
     nav a {
       color: rgba(255,255,255,0.75);
       text-decoration: none;
-      font-size: 13px;
+      font-size: clamp(10px, 1.2vw, 13px);
       font-weight: 400;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -65,7 +65,7 @@
     nav .nav-name {
       color: #fff;
       font-weight: 500;
-      font-size: 14px;
+      font-size: clamp(11px, 1.4vw, 14px);
       margin-right: auto;
       letter-spacing: 0.02em;
     }
@@ -238,8 +238,15 @@
       .hero-inner { flex-direction: column; gap: 1.5rem; }
       .hero-photo img { width: 100px; }
       .hero-text h1 { font-size: 2rem; }
-      nav { gap: 1rem; padding: 0 1rem; }
+      nav { gap: 0.6rem; padding: 0 0.75rem; }
+      nav .nav-name { font-size: 11px; }
+      nav a { font-size: 10px; letter-spacing: 0.02em; }
       .page { padding: 2rem 1rem 4rem; }
+    }
+    @media (max-width: 420px) {
+      nav .nav-name { display: none; }
+      nav { justify-content: space-around; gap: 0.4rem; }
+      nav a { font-size: 10px; }
     }
   </style>
 </head>
