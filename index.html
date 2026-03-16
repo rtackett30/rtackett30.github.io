@@ -107,7 +107,26 @@
       color: rgba(255,206,1,0.7);
       margin-top: 2px;
     }
-    .hero-contact {
+    .hero-tagline {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: right;
+      padding-left: 2rem;
+      border-left: 2px solid rgba(255,206,1,0.3);
+    }
+    .hero-tagline p {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+    }
+    .hero-tagline p:last-child {
+      color: rgba(255,206,1,0.8);
+    }
       margin-top: 1.2rem;
       padding: 0.6rem 0.8rem;
       background: var(--accent);
@@ -242,6 +261,7 @@
     @media (max-width: 640px) {
       .hero-inner { flex-direction: column; gap: 1.5rem; }
       .hero-photo img { width: 100px; }
+      .hero-tagline { display: none; }
       nav { gap: 0.6rem; padding: 0 0.75rem; }
       nav .nav-name { font-size: 11px; }
       nav a { font-size: 10px; letter-spacing: 0.02em; }
@@ -276,6 +296,11 @@
         <a href="https://linkedin.com/in/rtackett30/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
         <a href="https://rtackett1978.wordpress.com" target="_blank"><i class="fa-brands fa-wordpress"></i> Blog: Boundary Conditions</a>
       </div>
+    </div>
+    <div class="hero-tagline">
+      <p>Scientist by training.</p>
+      <p>Teacher by calling.</p>
+      <p>Administrator by circumstance.</p>
     </div>
   </div>
 </div>
