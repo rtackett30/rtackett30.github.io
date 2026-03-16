@@ -94,16 +94,17 @@
     }
     .hero-text h1 strong { font-weight: 600; }
     .hero-text .hero-title {
-      margin-top: 0.3rem;
-      font-size: 15px;
+      margin-top: 0.2rem;
+      font-size: clamp(11px, 1.4vw, 15px);
       font-weight: 400;
       color: rgba(255,255,255,0.8);
       letter-spacing: 0.01em;
+      white-space: nowrap;
     }
     .hero-text .hero-institution {
       font-size: 13px;
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,206,1,0.7);
       margin-top: 2px;
     }
     .hero-contact {
@@ -122,7 +123,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .hero-contact a:hover { color: #fff; }
+    .hero-contact a:hover { color: var(--orange); }
 
     .hero-bar {
       height: 3px;
@@ -263,8 +264,9 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <h1>Ronald J. <strong>Tackett, Ph.D.</strong></h1>
-      <p class="hero-title">Founding Head, School of Foundational Studies &middot; Associate Professor of Physics</p>
+      <h1><span style="color: var(--orange);">Ronald J.</span> <strong>Tackett, Ph.D.</strong></h1>
+      <p class="hero-title">Founding Head, School of Foundational Studies</p>
+      <p class="hero-title">Associate Professor of Physics</p>
       <p class="hero-institution">Kettering University &middot; Flint, Michigan</p>
       <div class="hero-contact">
         <a href="mailto:rtackett@kettering.edu"><i class="fa-solid fa-envelope"></i> rtackett@kettering.edu</a>
