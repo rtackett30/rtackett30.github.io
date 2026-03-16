@@ -173,18 +173,21 @@
     .card {
       background: var(--card-bg);
       border: 1px solid #e0e4ea;
+      border-left: 3px solid var(--orange);
       padding: 1.4rem 1.5rem 1.3rem;
       text-decoration: none;
       color: var(--text);
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      box-shadow: 0 3px 12px rgba(13,31,76,0.12);
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
     }
     .card:hover {
       border-color: var(--orange);
-      box-shadow: 0 4px 16px rgba(46,64,87,0.1);
-      transform: translateY(-2px);
+      border-left-color: var(--orange);
+      box-shadow: 0 6px 20px rgba(13,31,76,0.14);
+      transform: translateY(-3px);
     }
     .card-label {
       font-size: 11px;
