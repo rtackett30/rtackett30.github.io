@@ -86,10 +86,11 @@
     .hero-text h1 {
       font-family: 'Roboto Slab', serif;
       font-weight: 300;
-      font-size: 2.4rem;
+      font-size: clamp(1.3rem, 4vw, 2.4rem);
       color: #fff;
       line-height: 1.1;
       letter-spacing: -0.01em;
+      white-space: nowrap;
     }
     .hero-text h1 strong { font-weight: 600; }
     .hero-text .hero-title {
@@ -237,7 +238,6 @@
     @media (max-width: 640px) {
       .hero-inner { flex-direction: column; gap: 1.5rem; }
       .hero-photo img { width: 100px; }
-      .hero-text h1 { font-size: 2rem; }
       nav { gap: 0.6rem; padding: 0 0.75rem; }
       nav .nav-name { font-size: 11px; }
       nav a { font-size: 10px; letter-spacing: 0.02em; }
