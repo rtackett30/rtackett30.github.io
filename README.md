@@ -58,9 +58,18 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
   backgrounds: section rules, card borders, the lede bar. `--ku-gold` (#FFCE01) is used only
   in the hero, where anything gold sits on navy and the darker value fails contrast. Do not
   swap one for the other; pick by background, not by preference.
-- Fonts are Roboto and Roboto Slab, loaded from Google Fonts. Font Awesome 6.5.0 supplies the
-  contact icons, including `fa-google-scholar` and `fa-orcid`, both of which require 6.5.0 or
-  later.
+- Fonts are Roboto and Roboto Slab, loaded from Google Fonts, with `preconnect` hints ahead of
+  the stylesheet link.
+- Contact icons are **inline SVG**, not a webfont. The Font Awesome CDN stylesheet was removed;
+  path data is taken from Font Awesome Free 6.5.0, whose icons are CC BY 4.0, and the
+  attribution comment after `<body>` satisfies that licence. Keep the comment. To add an icon,
+  copy the `<path d="...">` from the Font Awesome package rather than re-adding the CDN link.
+- Every page has a `.skip-link` as the first focusable element, targeting `#main`. It is
+  positioned off-screen until focused. The nav's current page carries
+  `class="active" aria-current="page"`, so the active state is not conveyed by color alone.
+- All `target="_blank"` links carry `rel="noopener noreferrer"`.
+- Date stamps use one convention site-wide: "September 2026", in both the header institution
+  line and the footer. Update all pages together.
 
 ## Heading structure
 

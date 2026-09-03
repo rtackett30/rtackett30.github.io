@@ -17,6 +17,8 @@
   <meta property="og:image:alt" content="Ronald J. Tackett, Ph.D., Founding Head of the School of Foundational Studies and Associate Professor of Physics, Kettering University">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://rtackett30.github.io/teaching.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Slab:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root { --accent: #0D1F4C; --accent-light: #1a3470;
@@ -68,29 +70,35 @@
     nav { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav::-webkit-scrollbar { display: none; }
     nav a { white-space: nowrap; flex: 0 0 auto; }
+    /* Skip link: visible only when focused. */
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 200;
+      background: #fff; color: var(--accent); padding: 0.6rem 1rem; font-size: 13px;
+      font-weight: 500; text-decoration: none; border: 2px solid var(--accent); }
+    .skip-link:focus { left: 0.5rem; top: 0.5rem; }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav>
   <span class="nav-name">Ronald J. Tackett, Ph.D.</span>
   <a href="index.html">Home</a>
   <a href="cv.html">CV</a>
-  <a href="teaching.html" class="active">Teaching</a>
+  <a href="teaching.html" class="active" aria-current="page">Teaching</a>
   <a href="admin.html">Administration</a>
   <a href="ai.html">AI Statement</a>
   <a href="talks.html">Talks</a>
 </nav>
 
-<div class="page">
+<div class="page" id="main" role="main">
 
   <header>
     <div class="header-name">
       <h1>Ronald J. <strong>Tackett, Ph.D.</strong></h1>
       <p class="title">Founding Head, School of Foundational Studies &middot; Associate Professor of Physics</p>
-      <p class="institution">Kettering University &middot; Fall 2026</p>
+      <p class="institution">Kettering University &middot; September 2026</p>
     </div>
     <h2 class="doc-title">Teaching Philosophy</h2>
     <div class="doc-rule"></div>
@@ -157,7 +165,7 @@
 
   <footer>
     <span>Ronald J. Tackett, Ph.D. &middot; Kettering University</span>
-    <span>Fall 2026</span>
+    <span>Last updated: September 2026</span>
   </footer>
   <p style="margin-top: 1.2rem; font-size: 11px; color: #bbb; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
 

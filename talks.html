@@ -17,6 +17,8 @@
   <meta property="og:image:alt" content="Ronald J. Tackett, Ph.D., Founding Head of the School of Foundational Studies and Associate Professor of Physics, Kettering University">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://rtackett30.github.io/talks.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Slab:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root { --accent: #0D1F4C; --accent-light: #1a3470;
@@ -80,11 +82,17 @@
     nav { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav::-webkit-scrollbar { display: none; }
     nav a { white-space: nowrap; flex: 0 0 auto; }
+    /* Skip link: visible only when focused. */
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 200;
+      background: #fff; color: var(--accent); padding: 0.6rem 1rem; font-size: 13px;
+      font-weight: 500; text-decoration: none; border: 2px solid var(--accent); }
+    .skip-link:focus { left: 0.5rem; top: 0.5rem; }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav>
   <span class="nav-name">Ronald J. Tackett, Ph.D.</span>
@@ -93,16 +101,16 @@
   <a href="teaching.html">Teaching</a>
   <a href="admin.html">Administration</a>
   <a href="ai.html">AI Statement</a>
-  <a href="talks.html" class="active">Talks</a>
+  <a href="talks.html" class="active" aria-current="page">Talks</a>
 </nav>
 
-<div class="page">
+<div class="page" id="main" role="main">
 
   <header>
     <div class="header-name">
       <h1>Ronald J. <strong>Tackett, Ph.D.</strong></h1>
       <p class="title">Founding Head, School of Foundational Studies &middot; Associate Professor of Physics</p>
-      <p class="institution">Kettering University &middot; Fall 2026</p>
+      <p class="institution">Kettering University &middot; September 2026</p>
     </div>
     <h2 class="doc-title">Recent Talks</h2>
     <div class="doc-rule"></div>
@@ -117,7 +125,7 @@
     <p>Curriculum conversations about artificial intelligence tend to settle on three questions: how much AI content to add, where it belongs in the sequence, and when students may use the tools. These are policy questions, and someone has to answer them. This talk argues that they are not the hard question, and that treating them as the hard question lets us postpone one that is older than the technology: what does genuine competence in a field actually demand of a human being, and are our programs still doing the work to develop it?</p>
     <p>The evidence assembled here points in a consistent direction. Recent work in management science and at Harvard Business School finds that AI amplifies domain knowledge a person already holds rather than supplying knowledge they never built. The variable that matters, then, is not how much AI instruction students receive but the depth of the disciplinary knowledge they bring with them when they sit down in front of these tools. This is not an argument for less AI in the curriculum. It is an argument for more foundation underneath it, and it is addressed specifically to units where the liberal arts sit alongside engineering, computing, and the sciences.</p>
     <p class="talk-facts">7 slides &middot; Presented to a larger council than the April gathering, following the group's formal naming</p>
-    <a class="deck-link" href="Tackett_CoLLT_Sept2026_In-the-Age-of-AI.pdf" target="_blank">&#8595; Slides (PDF)</a>
+    <a class="deck-link" href="Tackett_CoLLT_Sept2026_In-the-Age-of-AI.pdf" target="_blank" rel="noopener noreferrer">&#8595; Slides (PDF)</a>
   </div>
 
   <div class="talk">
@@ -127,7 +135,7 @@
     <p>An institutional profile prepared for the first gathering of the council, where eight liberal arts and foundational units each answered the same seven questions about themselves. The answers differed considerably, which was informative in itself: the institutions varied in size, in structure, and even in what the phrase &ldquo;liberal arts&rdquo; is taken to mean on their own campuses.</p>
     <p>The deck traces Kettering from its founding as the School of Automobile Trades in 1919, through its years as General Motors Institute, to the establishment of the School of Foundational Studies in 2025. It explains why the school is called Foundational rather than liberal arts: in an engineering culture, &ldquo;liberal arts&rdquo; signals optionality, while &ldquo;foundational&rdquo; signals load-bearing. It also covers the school's structural standing as a unit reporting directly to the Provost, its integration across the engineering curriculum, and the tension inherent in being the foundation, which is that foundations tend to become invisible when everything above them is standing.</p>
     <p class="talk-facts">8 slides &middot; First gathering of the council, prior to its formal naming</p>
-    <a class="deck-link" href="Tackett_CoLLT_Apr2026_SoFS_Institutional_Profile.pdf" target="_blank">&#8595; Slides (PDF)</a>
+    <a class="deck-link" href="Tackett_CoLLT_Apr2026_SoFS_Institutional_Profile.pdf" target="_blank" rel="noopener noreferrer">&#8595; Slides (PDF)</a>
   </div>
 
   <div class="talk">
@@ -137,7 +145,7 @@
     <p>A public lecture for a general audience, built on the premise that you can get someone from &ldquo;what is a semiconductor?&rdquo; to the geopolitics of chip manufacturing in one sitting without asking them to take anything on faith. The first half is physics: what makes a semiconductor distinctive, why doping a material that is not especially good at conducting or insulating turns out to matter so much, how a p-n junction becomes a diode, and how two junctions back to back become a transistor that can act as a switch and then as a logic gate. From there to the integrated circuit and Moore's law.</p>
     <p>The second half is the industry those devices built: global market size and segmentation, the key players, job creation and domestic manufacturing policy, and the cultural footprint of a technology most people never think about directly. It closes on the pressures the industry now faces, including supply chain fragility, the rising cost of advanced fabrication, geopolitical exposure, talent shortages, and the physical limits that are getting harder to engineer around.</p>
     <p class="talk-facts">47 slides &middot; General audience, no physics background assumed</p>
-    <a class="deck-link" href="Tackett_Longway_Dec2024_Semiconductors.pdf" target="_blank">&#8595; Slides (PDF, 4.9 MB)</a>
+    <a class="deck-link" href="Tackett_Longway_Dec2024_Semiconductors.pdf" target="_blank" rel="noopener noreferrer">&#8595; Slides (PDF, 4.9 MB)</a>
   </div>
 
   <div class="talk">
@@ -147,12 +155,12 @@
     <p>A public lecture organized around a single physical constraint and what it took to get past it. It opens with the historical development of microscopy, moves through how compound and stereo light microscopes actually work, and then arrives at the Airy disk and the diffraction limit: the point at which no amount of better glass will resolve a smaller feature, because the wavelength of visible light sets the floor.</p>
     <p>That limit is the hinge of the talk. If the wavelength is what constrains you, then the way forward is a shorter wavelength, which is why electrons became the answer. The second half covers how transmission and scanning electron microscopes work, developed by analogy to the light instruments already introduced, and closes with a gallery of micrographs showing what the instruments actually produce.</p>
     <p class="talk-facts">46 slides &middot; General audience &middot; Image sources credited on-slide, including public domain and Creative Commons material</p>
-    <a class="deck-link" href="Tackett_Longway_2023_Microscopy.pdf" target="_blank">&#8595; Slides (PDF, 4.9 MB)</a>
+    <a class="deck-link" href="Tackett_Longway_2023_Microscopy.pdf" target="_blank" rel="noopener noreferrer">&#8595; Slides (PDF, 4.9 MB)</a>
   </div>
 
   <footer>
     <span>Ronald J. Tackett, Ph.D. &middot; Kettering University</span>
-    <span>Fall 2026</span>
+    <span>Last updated: September 2026</span>
   </footer>
   <p style="margin-top: 1.2rem; font-size: 11px; color: #bbb; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
 
