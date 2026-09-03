@@ -208,7 +208,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .hero-contact a:hover { color: var(--orange); }
+    .hero-contact a:hover { color: var(--ku-gold); }
 
     .hero-bar {
       height: 3px;
@@ -279,7 +279,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #27A9E1;
+      color: #177DA9;
     }
     .card-title {
       font-family: 'Roboto Slab', serif;
@@ -298,7 +298,7 @@
     .card-arrow {
       font-size: 13px;
       font-weight: 500;
-      color: #27A9E1;
+      color: #177DA9;
       margin-top: 0.4rem;
       letter-spacing: 0.03em;
     }
@@ -433,6 +433,18 @@
       background: #fff; color: var(--accent); padding: 0.6rem 1rem; font-size: 13px;
       font-weight: 500; text-decoration: none; border: 2px solid var(--accent); }
     .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+    /* Visible keyboard focus. Was relying on the browser default, which the
+       dark nav suppressed almost entirely. */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #177DA9;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    nav a:focus-visible { outline-color: #FFCE01; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .card:hover, .blog-item:hover, .pdf-link:hover, .deck-link:hover { transform: none !important; }
+    }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -550,7 +562,7 @@
     <span>Ronald J. Tackett, Ph.D. &middot; Kettering University &middot; Flint, MI</span>
     <span>Last updated: September 2026</span>
   </footer>
-  <p style="margin-top: 1.2rem; font-size: 11px; color: #bbb; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
+  <p style="margin-top: 1.2rem; font-size: 11px; color: #6F6F6F; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
 
 </div>
 <script>

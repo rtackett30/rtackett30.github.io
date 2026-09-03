@@ -195,7 +195,7 @@
     .cv-table tr { border-bottom: 1px solid #eee; }
     .cv-table tr:last-child { border-bottom: none; }
     .cv-table td { padding: 5px 8px 5px 0; vertical-align: top; }
-    .cv-table td:first-child { font-weight: 700; min-width: 50px; color: var(--orange); }
+    .cv-table td:first-child { font-weight: 700; min-width: 50px; color: #8A6410; }
     .cv-table td:last-child { color: var(--subtext); font-style: italic; text-align: right; white-space: nowrap; padding-right: 0; }
     .cv-table .amount { color: var(--subtext); }
 
@@ -209,7 +209,7 @@
       line-height: 1.6;
     }
     .pub-list li:last-child { border-bottom: none; }
-    .pub-num { font-weight: 700; color: var(--orange); margin-right: 0.4em; }
+    .pub-num { font-weight: 700; color: #8A6410; margin-right: 0.4em; }
 
     /* ── PRESENTATIONS ── */
     .pres-list { list-style: none; padding: 0; }
@@ -221,7 +221,7 @@
       line-height: 1.6;
     }
     .pres-list li:last-child { border-bottom: none; }
-    .pres-year { font-weight: 700; color: var(--orange); }
+    .pres-year { font-weight: 700; color: #8A6410; }
 
     /* ── COURSE LIST ── */
     .course-grid {
@@ -230,7 +230,7 @@
       gap: 3px 1rem;
       font-size: 13px;
     }
-    .course-code { font-weight: 700; color: var(--orange); white-space: nowrap; }
+    .course-code { font-weight: 700; color: #8A6410; white-space: nowrap; }
     .course-name { color: var(--text); }
 
     /* ── MENTORING ── */
@@ -272,8 +272,8 @@
       nav { gap: 1rem; padding: 0 1rem; }
       .page { padding: 1.5rem 1rem 4rem; }
     }
-    .pdf-link { display: inline-block; margin-bottom: 1.5rem; padding: 0.45rem 1.1rem; background: #27A9E1; color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; border: none; border-radius: 4px; box-shadow: 0 4px 6px rgba(13,31,76,0.25), 0 1px 3px rgba(13,31,76,0.15); transform: translateY(0); transition: all 0.15s ease; }
-    .pdf-link:hover { background: #1d8fb8; box-shadow: 0 6px 10px rgba(13,31,76,0.3), 0 2px 4px rgba(13,31,76,0.2); transform: translateY(-2px); }
+    .pdf-link { display: inline-block; margin-bottom: 1.5rem; padding: 0.45rem 1.1rem; background: #177DA9; color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; border: none; border-radius: 4px; box-shadow: 0 4px 6px rgba(13,31,76,0.25), 0 1px 3px rgba(13,31,76,0.15); transform: translateY(0); transition: all 0.15s ease; }
+    .pdf-link:hover { background: #12658A; box-shadow: 0 6px 10px rgba(13,31,76,0.3), 0 2px 4px rgba(13,31,76,0.2); transform: translateY(-2px); }
     @media (max-width: 640px) { nav { gap: 0.6rem; padding: 0 0.75rem; } nav .nav-name { font-size: 11px; } nav a { font-size: 10px; letter-spacing: 0.02em; } }
     @media (max-width: 420px) { nav .nav-name { display: none; } nav { justify-content: space-around; gap: 0.4rem; } nav a { font-size: 10px; } }
   
@@ -300,6 +300,18 @@
       background: #fff; color: var(--accent); padding: 0.6rem 1rem; font-size: 13px;
       font-weight: 500; text-decoration: none; border: 2px solid var(--accent); }
     .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+    /* Visible keyboard focus. Was relying on the browser default, which the
+       dark nav suppressed almost entirely. */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #177DA9;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    nav a:focus-visible { outline-color: #FFCE01; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .card:hover, .blog-item:hover, .pdf-link:hover, .deck-link:hover { transform: none !important; }
+    }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -652,7 +664,7 @@
     <span>Ronald J. Tackett, Ph.D. &middot; Kettering University</span>
     <span>Last updated: September 2026</span>
   </footer>
-  <p style="margin-top: 1.2rem; font-size: 11px; color: #bbb; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
+  <p style="margin-top: 1.2rem; font-size: 11px; color: #6F6F6F; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
 
 </div>
 </body>
