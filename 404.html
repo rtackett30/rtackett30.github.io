@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found &mdash; Ronald J. Tackett, Ph.D.</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Slab:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #0D1F4C; --accent-light: #1a3470;
+      --orange: #C9921A;
+      --orange-light: #E0A820; --text: #1a1a1a; --subtext: #555; --rule-light: #ccc; --bg: #fafafa; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Headings added for document structure; the classes above own all visual styling. */
+    h2, h3 { font: inherit; margin: 0; letter-spacing: inherit; text-transform: none; color: inherit; }
+    body { font-family: 'Roboto', sans-serif; font-weight: 300; color: var(--text); background: var(--bg); line-height: 1.8; font-size: 15.5px; }
+    nav { background: var(--accent); padding: 0 2rem; display: flex; align-items: center; gap: 2rem; height: 52px; position: sticky; top: 0; z-index: 100; }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: clamp(10px, 1.2vw, 13px); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--orange-light); }
+    nav .nav-name { color: #fff; font-weight: 500; font-size: clamp(11px, 1.4vw, 14px); margin-right: auto; letter-spacing: 0.02em; }
+    .page { max-width: 740px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    header { padding-bottom: 1.5rem; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .header-name h1 { font-family: 'Roboto Slab', serif; font-weight: 300; font-size: 2.2rem; color: var(--accent); line-height: 1.15; }
+    .header-name h1 strong { font-weight: 600; }
+    .header-name .title { margin-top: 0.4rem; font-size: 14px; font-weight: 500; color: var(--subtext); }
+    .header-name .institution { font-size: 13px; font-weight: 300; color: var(--subtext); }
+    .doc-title { margin-top: 1.2rem; font-family: 'Roboto Slab', serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); letter-spacing: 0.01em; }
+    .doc-rule { height: 2px; background: var(--orange); margin-top: 6px; }
+    .lede { margin: 1.5rem 0 2rem; font-style: italic; font-weight: 300; color: var(--subtext); font-size: 15px; padding: 0.9rem 1rem 0.9rem 1.1rem; border-left: 4px solid var(--orange); line-height: 1.7; background: #fff; box-shadow: 2px 3px 10px rgba(46,64,87,0.12); }
+    .stmt-section { margin-bottom: 2rem; }
+    .stmt-section-title { font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .stmt-rule { height: 1px; background: rgba(201,146,26,0.6); margin-bottom: 0.9rem; }
+    .stmt-section p { margin-bottom: 0.9em; font-size: 15px; }
+    .stmt-section p:last-child { margin-bottom: 0; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule-light); font-size: 12px; color: var(--subtext); display: flex; justify-content: space-between; }
+    @media (max-width: 600px) { nav { gap: 1rem; padding: 0 1rem; } .page { padding: 1.5rem 1rem 4rem; } }
+    .pdf-link { display: inline-block; margin-bottom: 1.5rem; padding: 0.45rem 1.1rem; background: #27A9E1; color: #fff; font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; border: none; border-radius: 4px; box-shadow: 0 4px 6px rgba(13,31,76,0.25), 0 1px 3px rgba(13,31,76,0.15); transform: translateY(0); transition: all 0.15s ease; }
+    .pdf-link:hover { background: #1d8fb8; box-shadow: 0 6px 10px rgba(13,31,76,0.3), 0 2px 4px rgba(13,31,76,0.2); transform: translateY(-2px); }
+    @media (max-width: 640px) { nav { gap: 0.6rem; padding: 0 0.75rem; } nav .nav-name { font-size: 11px; } nav a { font-size: 10px; letter-spacing: 0.02em; } }
+    @media (max-width: 420px) { nav .nav-name { display: none; } nav { justify-content: space-around; gap: 0.4rem; } nav a { font-size: 10px; } }
+  
+    /* ── PRINT ── */
+    @media print {
+      nav, .pdf-link { display: none !important; }
+      body { background: #fff; font-size: 10.5pt; line-height: 1.5; }
+      .page { max-width: none; padding: 0; }
+      .lede { background: transparent; box-shadow: none; }
+      a { color: inherit; text-decoration: none; }
+      .stmt-section, .cv-entry, tr { page-break-inside: avoid; }
+      .stmt-section-title, .doc-title, .section-title, .subsection-title { page-break-after: avoid; }
+      footer { border-top: 1px solid #999; }
+    }
+
+    /* ── TALK ENTRIES ── */
+    .talk { margin-bottom: 2.2rem; padding-bottom: 1.8rem; border-bottom: 1px solid var(--rule-light); }
+    .talk:last-of-type { border-bottom: none; }
+    .talk-meta { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #27A9E1; }
+    .talk-title { font-family: 'Roboto Slab', serif; font-size: 1.18rem; font-weight: 600; color: var(--accent); line-height: 1.35; margin: 0.35rem 0 0.5rem; }
+    .talk-venue { font-size: 13.5px; font-weight: 300; font-style: italic; color: var(--subtext); line-height: 1.6; margin-bottom: 0.9rem; }
+    .talk p { font-size: 15px; margin-bottom: 0.9em; }
+    .talk-facts { font-size: 12.5px; color: var(--subtext); font-weight: 400; letter-spacing: 0.02em; margin-top: 1rem; }
+    .deck-link { display: inline-block; margin-top: 0.9rem; padding: 0.4rem 1rem; background: #27A9E1; color: #fff; font-size: 12.5px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; border-radius: 4px; box-shadow: 0 4px 6px rgba(13,31,76,0.25), 0 1px 3px rgba(13,31,76,0.15); transition: all 0.15s ease; }
+    .deck-link:hover { background: #1d8fb8; box-shadow: 0 6px 10px rgba(13,31,76,0.3); transform: translateY(-2px); }
+    @media print { .deck-link { display: none !important; } .talk { page-break-inside: avoid; } }
+
+    /* Six nav items: never wrap or clip; scroll horizontally if the viewport is too narrow. */
+    nav { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { white-space: nowrap; flex: 0 0 auto; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Ronald J. Tackett, Ph.D.</span>
+  <a href="/index.html">Home</a>
+  <a href="/cv.html">CV</a>
+  <a href="/teaching.html">Teaching</a>
+  <a href="/admin.html">Administration</a>
+  <a href="/ai.html">AI Statement</a>
+  <a href="/talks.html">Talks</a>
+</nav>
+
+<div class="page">
+
+  <header>
+    <div class="header-name">
+      <h1>Page <strong>Not Found</strong></h1>
+      <p class="title">Error 404</p>
+      <p class="institution">Kettering University</p>
+    </div>
+    <h2 class="doc-title">That page does not exist</h2>
+    <div class="doc-rule"></div>
+  </header>
+
+  <p class="lede">The address you followed does not match anything on this site. It may have been mistyped, or a page may have been renamed since the link was made.</p>
+
+  <div class="stmt-section">
+    <h3 class="stmt-section-title">Where to go instead</h3>
+    <div class="stmt-rule"></div>
+    <ul style="margin: 0.5rem 0 0.75rem 1.5rem; font-size: 15px;">
+      <li style="margin-bottom: 0.5rem;"><a href="/index.html" style="color: #27A9E1;">Home</a>, for a general introduction</li>
+      <li style="margin-bottom: 0.5rem;"><a href="/cv.html" style="color: #27A9E1;">Curriculum Vitae</a>, for the full academic record</li>
+      <li style="margin-bottom: 0.5rem;"><a href="/teaching.html" style="color: #27A9E1;">Teaching Philosophy</a> and <a href="/admin.html" style="color: #27A9E1;">Administrative Philosophy</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="/ai.html" style="color: #27A9E1;">AI Statement</a>, on how I use these tools in my work</li>
+      <li><a href="/talks.html" style="color: #27A9E1;">Recent Talks</a>, with slides from invited presentations</li>
+    </ul>
+    <p>If you reached this page from a link elsewhere on the site, I would appreciate knowing: <a href="mailto:rtackett@kettering.edu" style="color: #27A9E1;">rtackett@kettering.edu</a>.</p>
+  </div>
+
+  <footer>
+    <span>Ronald J. Tackett, Ph.D. &middot; Kettering University</span>
+    <span>Fall 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

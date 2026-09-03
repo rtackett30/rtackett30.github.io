@@ -12,6 +12,7 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
 |---|---|
 | `index.html` | Home page: bio, document cards, live blog feed |
 | `cv.html` | Curriculum vitae |
+| `talks.html` | Recent invited talks, with slide decks as PDFs |
 | `teaching.html` | Teaching Philosophy |
 | `admin.html` | Administrative Philosophy |
 | `ai.html` | Professional Statement on the Use of Artificial Intelligence |
@@ -19,10 +20,17 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
 | `Teaching_Philosophy_Tackett.pdf` | PDF counterpart of `teaching.html` |
 | `Admin_Philosophy_Tackett.pdf` | PDF counterpart of `admin.html` |
 | `AI_Statement_Tackett.pdf` | PDF counterpart of `ai.html` |
+| `Tackett_CoLLT_Sept2026_In-the-Age-of-AI.pdf` | Slides, CoLLT, 4 Sep 2026 (exported from PowerPoint) |
+| `Tackett_CoLLT_Apr2026_SoFS_Institutional_Profile.pdf` | Slides, CoLLT, 10 Apr 2026 (exported from PowerPoint) |
+| `Tackett_Longway_Dec2024_Semiconductors.pdf` | Slides, Longway Planetarium, Dec 2024 (4.9 MB) |
+| `Tackett_Longway_2023_Microscopy.pdf` | Slides, Longway Planetarium, 2023 (4.9 MB, recompressed) |
 | `bc-lockup-light-tagline.svg` | *Boundary Conditions* lockup, used in the blog section of `index.html` |
-| `Tackett_Mace.jpg` | Commencement photograph (not currently referenced by any page) |
+| `Tackett_Mace.jpg` | Commencement photograph; the About-section image on `index.html` and the JSON-LD `image` |
 | `sitemap.xml` | Sitemap, linked from `index.html` |
 | `robots.txt` | Allows all crawlers; points to the sitemap |
+| `404.html` | Styled not-found page, served automatically by GitHub Pages |
+| `og-card.png` | 1200x630 link-preview card, referenced by `og:image` on every page |
+| `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` | Site icons (RT monogram, portfolio branding, not the blog mark) |
 | `googledab7e3e171bf116c.html` | Google Search Console ownership verification |
 
 ## Files that must not move or be renamed
@@ -112,16 +120,27 @@ this repo (see `cv-latex-source/`, which should be committed here so the two sta
 
 ## Known items
 
-- `index.html` is roughly 275 KB because the headshot is base64-inlined rather than referenced
-  as a file. Extracting it to `headshot.jpg` would cut the page by about 90 percent, let the
-  browser cache the image separately, and allow an `image` property in the JSON-LD.
-- No `og:image` on any page, so link previews on LinkedIn, Slack, and Teams render as a blank
-  box. No favicon either; browser tabs show the generic globe.
-- No `404.html`, so GitHub's default error page handles typos.
-- The home page nav omits the "Home" link that the other four pages carry.
+- The About-section photo on `index.html` is `Tackett_Mace.jpg`, referenced as a file. It was
+  previously base64-inlined, which made the page 275 KB; it is now about 21 KB. Do not inline
+  it again.
+- `.about-figure` needs `float: left` for the About text to wrap around the photo. The clearfix
+  that makes the float work is `.about-body::after`. Removing either breaks the wrap.
 - Two publication entries in the CV appear to have inherited typos and read identically in the
   HTML and the PDF: "pyrochlore Bi₂Ti₂O₄" (the Melot 2009 compound is Bi₂Ti₂O₇) and "La- and
   Hy-doped Co ferrite" (likely H-doped). Verify against the originals before correcting.
+- The talk PDFs are LibreOffice exports of the source `.pptx` decks, which are not in this
+  repo. The September deck's 6 hidden backup slides are correctly excluded from the export;
+  re-exporting will keep excluding them.
+- The 2023 microscopy PDF was 16 MB as exported. Embedded images were downsampled to 1400 px
+  and re-encoded as JPEG at quality 72, bringing it to 4.9 MB with text left as vectors. Redo
+  that step after any re-export. Its image sources are credited on-slide, several of them
+  public domain or Creative Commons.
+- The Longway semiconductors deck contains roughly 20 images, several of them sourced from
+  third-party sites (Intel, CircuitDigest, and others) and appropriate for live classroom or
+  public display. Publishing it as a permanent download is a different use. Review the image
+  sourcing, or remove the `deck-link` line from that entry in `talks.html` to keep the
+  description without the file. The PDF is also 4.9 MB, by far the largest file in the repo;
+  the images resist further lossless compression.
 - The start date for the SoFS appointment reads June 2025 in `ai.html`, `admin.html`, and both
   corresponding PDFs. Confirm whether June or July is correct; it appears in four places.
 
