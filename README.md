@@ -54,6 +54,51 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
 - Design tokens are the `:root` custom properties at the top of each `<style>` block:
   `--accent` (#0D1F4C), `--orange` (#C9921A), `--ku-blue` (#27A9E1), and in `index.html`
   `--ku-gold` (#FFCE01).
+## Mobile
+
+Single-column responsive; breakpoints at 640px and 420px (600px on the document pages).
+Things that were fixed and are easy to reintroduce:
+
+- **No `white-space: nowrap` on hero text.** The `<h1>` and the title line both had it, which
+  forced horizontal scrolling on a 320px screen. The remaining nowrap rules are on nav links
+  (intentional; the bar scrolls) and inside CV cells, which are overridden at 600px.
+- **The hero tagline is no longer hidden on mobile.** It was `display: none` below 640px, so
+  "Scientist by training / Teacher by calling / Administrator by circumstance" vanished on
+  phones. It now moves below the name with a top rule instead of the left rule.
+- **`.about-figure` unfloats below 640px.** At 33% width on a phone the photo left roughly 30
+  characters per line beside it. It now sits full width, capped at 260px, centered.
+- **CV tables stack below 600px.** `.cv-table` and `.mentor-table` have nowrap columns that
+  overflowed; each row becomes a block with left-aligned cells.
+- **`html, body { overflow-x: hidden }` and `img, svg { max-width: 100% }`** guard against any
+  residual sideways scroll.
+- **Nav links are 44px tall** so the tap target meets guidance even though the label is 10-11px.
+
+## Accessibility
+
+The site targets WCAG 2.1 AA. Every text/background pair was measured; all pass. Before
+changing any color, check it against its actual background:
+
+| Use | Value | Ratio |
+|---|---|---|
+| Gold text on navy (hero) | `--ku-gold` #FFCE01 | 10.69:1 |
+| Gold text on white (CV dates, pub numbers, years, course codes) | #8A6410 | 5.37:1 |
+| Blue text, links, button fills | #177DA9 | 4.62:1 |
+| Small print (AI-assistance credit) | #6F6F6F | 4.81:1 |
+
+The three failures fixed in this pass, for reference: KU Light Blue #27A9E1 as text or as a
+button fill measured **2.68:1**; the site gold #C9921A as text on white measured **2.76:1**;
+the credit line at #bbb measured **1.84:1**. #27A9E1 remains the brand value and is fine as a
+decorative border, but never as text on white.
+
+Also in place: a `.skip-link` on every page, `aria-current="page"` on the active nav item,
+`a:focus-visible` outlines (#177DA9 on light, #FFCE01 on the navy nav) because the browser
+default was nearly invisible against the dark bar, and a `prefers-reduced-motion` block that
+disables the hover transforms and transitions.
+
+Known and accepted: `.cv-table` has no `<th>` cells, so screen readers announce it as a table
+without headers. The content is scannable enough that this was left alone; adding headers
+would introduce a visible header row.
+
 - Two golds are in use, deliberately. `--orange` (#C9921A) is the site-wide accent on light
   backgrounds: section rules, card borders, the lede bar. `--ku-gold` (#FFCE01) is used only
   in the hero, where anything gold sits on navy and the darker value fails contrast. Do not

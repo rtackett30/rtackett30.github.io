@@ -91,6 +91,8 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; }
+    img, svg { max-width: 100%; }
 
     /* Headings added for document structure; the classes above own all visual styling. */
     h2, h3 { font: inherit; margin: 0; letter-spacing: inherit; text-transform: none; color: inherit; }
@@ -154,7 +156,6 @@
       color: #fff;
       line-height: 1.1;
       letter-spacing: -0.01em;
-      white-space: nowrap;
     }
     .hero-text h1 strong { font-weight: 600; }
     .hero-text .hero-title {
@@ -163,7 +164,6 @@
       font-weight: 400;
       color: rgba(255,255,255,0.8);
       letter-spacing: 0.01em;
-      white-space: nowrap;
     }
     .hero-text .hero-institution {
       font-size: 13px;
@@ -408,9 +408,20 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero-inner { flex-direction: column; gap: 1.5rem; }
-      .hero-photo img { width: 100px; }
-      .hero-tagline { display: none; }
+      .hero-inner { flex-direction: column; gap: 1.2rem; }
+      /* Tagline moves below the name instead of disappearing. */
+      .hero-tagline {
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 0;
+        padding-top: 0.9rem;
+        border-left: none;
+        border-top: 2px solid rgba(255,206,1,0.45);
+        width: 100%;
+      }
+      .hero-tagline p { line-height: 1.5; }
+      /* Photo goes full width above the text; a 33% float is unusable at this size. */
+      .about-figure { float: none; width: 100%; max-width: 260px; margin: 0 auto 1.4rem; }
       nav { gap: 0.6rem; padding: 0 0.75rem; }
       nav .nav-name { font-size: 11px; }
       nav a { font-size: 10px; letter-spacing: 0.02em; }
@@ -444,6 +455,12 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
       .card:hover, .blog-item:hover, .pdf-link:hover, .deck-link:hover { transform: none !important; }
+    }
+    /* Tap targets: make nav links fill the bar height (WCAG 2.5.8 / 44px guidance). */
+    nav a { display: flex; align-items: center; min-height: 44px; padding: 0 0.15rem; }
+    @media (max-width: 640px) {
+      nav a { font-size: 11px; padding: 0 0.3rem; }
+      .hero-contact a, .header-contact a { min-height: 32px; display: inline-flex; align-items: center; }
     }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">

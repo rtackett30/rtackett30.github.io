@@ -25,6 +25,8 @@
       --orange: #C9921A;
       --orange-light: #E0A820; --text: #1a1a1a; --subtext: #555; --rule-light: #ccc; --bg: #fafafa; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; }
+    img, svg { max-width: 100%; }
 
     /* Headings added for document structure; the classes above own all visual styling. */
     h2, h3 { font: inherit; margin: 0; letter-spacing: inherit; text-transform: none; color: inherit; }
@@ -86,6 +88,12 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
       .card:hover, .blog-item:hover, .pdf-link:hover, .deck-link:hover { transform: none !important; }
+    }
+    /* Tap targets: make nav links fill the bar height (WCAG 2.5.8 / 44px guidance). */
+    nav a { display: flex; align-items: center; min-height: 44px; padding: 0 0.15rem; }
+    @media (max-width: 640px) {
+      nav a { font-size: 11px; padding: 0 0.3rem; }
+      .hero-contact a, .header-contact a { min-height: 32px; display: inline-flex; align-items: center; }
     }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
