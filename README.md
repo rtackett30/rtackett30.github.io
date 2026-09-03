@@ -123,6 +123,9 @@ this repo (see `cv-latex-source/`, which should be committed here so the two sta
 - The About-section photo on `index.html` is `Tackett_Mace.jpg`, referenced as a file. It was
   previously base64-inlined, which made the page 275 KB; it is now about 21 KB. Do not inline
   it again.
+- The hero institution line (`.hero-institution`) sits on the navy hero background. It must
+  stay at full opacity in KU Gold `#FFCE01`; the original `rgba(201,146,26,0.7)` at weight 300
+  measured 3.42:1, below the 4.5:1 AA threshold. Do not reintroduce alpha on gold over navy.
 - `.about-figure` needs `float: left` for the About text to wrap around the photo. The clearfix
   that makes the float work is `.about-body::after`. Removing either breaks the wrap.
 - Two publication entries in the CV appear to have inherited typos and read identically in the
