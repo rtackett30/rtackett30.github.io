@@ -237,8 +237,71 @@
       letter-spacing: 0.03em;
     }
 
+    /* ── BLOG FEED ── */
+    #blog-section { display: none; }
+    .blog-lockup {
+      display: block;
+      width: 100%;
+      max-width: 330px;
+      height: auto;
+      margin: 0.2rem 0 0.4rem;
+    }
+    .blog-list {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .blog-item {
+      background: var(--card-bg);
+      border: 1px solid #e0e4ea;
+      border-left: 3px solid var(--ku-blue);
+      padding: 1rem 1.3rem 1.05rem;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      box-shadow: 0 3px 12px rgba(13,31,76,0.12);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .blog-item:hover {
+      border-color: var(--ku-blue);
+      box-shadow: 0 6px 20px rgba(13,31,76,0.14);
+      transform: translateY(-2px);
+    }
+    .blog-date {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ku-blue);
+    }
+    .blog-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.3;
+      margin-top: 0.3rem;
+    }
+    .blog-excerpt {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--subtext);
+      line-height: 1.6;
+      margin-top: 0.4rem;
+    }
+    .blog-all {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ku-blue);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .blog-all:hover { text-decoration: underline; }
+
     .about-figure {
-      float: left;
       width: 33%;
       margin: 0.9rem 1.8rem 1.2rem 0;
       display: block;
@@ -388,8 +451,87 @@
     </div>
   </section>
 
+  <!-- BLOG FEED (populated by script below; hidden if the fetch fails) -->
+  <section id="blog-section">
+    <p class="section-title">From the Blog</p>
+    <div class="section-rule"></div>
+    <a href="https://rtackett1978.wordpress.com" target="_blank" rel="noopener"><img class="blog-lockup" src="bc-lockup-light-tagline.svg" alt="Boundary Conditions: essays on higher education, AI, and the academy"></a>
+    <div class="blog-list" id="blog-list"></div>
+    <a class="blog-all" href="https://rtackett1978.wordpress.com" target="_blank" rel="noopener">All posts at Boundary Conditions &rarr;</a>
+  </section>
+
   <footer>
     <span>Ronald J. Tackett, Ph.D. &middot; Kettering University &middot; Flint, MI</span>
     <span>Last updated: September 2026</span>
   </footer>
-  <p style="margin-top: 1.2rem; font-size: 11px; color: #bbb; text-align: center;">T
+  <p style="margin-top: 1.2rem; font-size: 11px; color: #bbb; text-align: center;">This site was built with the assistance of Claude (Anthropic) via iterative conversational workflow in Claude.ai.</p>
+
+</div>
+<script>
+/* Boundary Conditions feed.
+   Tries the current WordPress.com endpoint first, then the legacy v1.1 one.
+   If both fail, the section stays hidden and the page looks exactly as before. */
+(function () {
+  var SITE = 'rtackett1978.wordpress.com';
+  var COUNT = 3;
+  var sources = [
+    { url: 'https://public-api.wordpress.com/wp/v2/sites/' + SITE + '/posts?per_page=' + COUNT,
+      map: function (d) { return (d || []).map(function (p) {
+        return { title: p.title && p.title.rendered, link: p.link,
+                 date: p.date, excerpt: p.excerpt && p.excerpt.rendered }; }); } },
+    { url: 'https://public-api.wordpress.com/rest/v1.1/sites/' + SITE + '/posts/?number=' + COUNT,
+      map: function (d) { return ((d && d.posts) || []).map(function (p) {
+        return { title: p.title, link: p.URL, date: p.date, excerpt: p.excerpt }; }); } }
+  ];
+
+  function strip(html) {
+    var t = document.createElement('div');
+    t.innerHTML = html || '';
+    return (t.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+  function shorten(str, n) {
+    if (str.length <= n) return str;
+    var cut = str.slice(0, n), sp = cut.lastIndexOf(' ');
+    return (sp > 0 ? cut.slice(0, sp) : cut) + '\u2026';
+  }
+  function fmtDate(iso) {
+    var d = new Date(iso);
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US',
+      { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function render(posts) {
+    posts = posts.filter(function (p) { return p.title && p.link; }).slice(0, COUNT);
+    if (!posts.length) return false;
+    var list = document.getElementById('blog-list');
+    posts.forEach(function (p) {
+      var a = document.createElement('a');
+      a.className = 'blog-item';
+      a.href = p.link; a.target = '_blank'; a.rel = 'noopener';
+      var d = fmtDate(p.date);
+      if (d) { var ds = document.createElement('span');
+               ds.className = 'blog-date'; ds.textContent = d; a.appendChild(ds); }
+      var t = document.createElement('div');
+      t.className = 'blog-title'; t.textContent = strip(p.title); a.appendChild(t);
+      var ex = shorten(strip(p.excerpt), 180);
+      if (ex) { var e = document.createElement('p');
+                e.className = 'blog-excerpt'; e.textContent = ex; a.appendChild(e); }
+      list.appendChild(a);
+    });
+    document.getElementById('blog-section').style.display = 'block';
+    return true;
+  }
+
+  function attempt(i) {
+    if (i >= sources.length) return;
+    var src = sources[i];
+    fetch(src.url, { headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (d) { if (!render(src.map(d))) throw new Error('no usable posts'); })
+      .catch(function () { attempt(i + 1); });
+  }
+  attempt(0);
+})();
+</script>
+</body>
+</html>
