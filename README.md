@@ -22,6 +22,7 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
 | `bc-lockup-light-tagline.svg` | *Boundary Conditions* lockup, used in the blog section of `index.html` |
 | `Tackett_Mace.jpg` | Commencement photograph (not currently referenced by any page) |
 | `sitemap.xml` | Sitemap, linked from `index.html` |
+| `robots.txt` | Allows all crawlers; points to the sitemap |
 | `googledab7e3e171bf116c.html` | Google Search Console ownership verification |
 
 ## Files that must not move or be renamed
@@ -87,8 +88,13 @@ Google's Rich Results Test before committing.
 because the same page is served at both `/` and `/index.html` and search engines can otherwise
 treat those as competing URLs.
 
-`sitemap.xml` is not generated. Update its `lastmod` values by hand when pages change, or the
-dates search engines use to schedule recrawls will be wrong.
+`sitemap.xml` is maintained by hand. It lists the five HTML pages, using the canonical root
+URL rather than `/index.html`, and omits `changefreq` and `priority` because Google ignores
+both. The four PDFs are present as a commented-out block; uncomment to list them explicitly.
+**Update the `lastmod` date on any page you change**, or the dates search engines use to
+schedule recrawls will be wrong.
+
+`robots.txt` allows all crawlers and points to the sitemap.
 
 ## PDFs and their LaTeX source
 
@@ -111,8 +117,7 @@ this repo (see `cv-latex-source/`, which should be committed here so the two sta
   browser cache the image separately, and allow an `image` property in the JSON-LD.
 - No `og:image` on any page, so link previews on LinkedIn, Slack, and Teams render as a blank
   box. No favicon either; browser tabs show the generic globe.
-- No `robots.txt` pointing at the sitemap, and no `404.html`, so GitHub's default error page
-  handles typos.
+- No `404.html`, so GitHub's default error page handles typos.
 - The home page nav omits the "Home" link that the other four pages carry.
 - Two publication entries in the CV appear to have inherited typos and read identically in the
   HTML and the PDF: "pyrochlore Bi₂Ti₂O₄" (the Melot 2009 compound is Bi₂Ti₂O₇) and "La- and
