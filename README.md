@@ -52,7 +52,12 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
 - Each page is self-contained: its CSS lives in a `<style>` block in its own `<head>`. There is
   no shared stylesheet, so a change to shared visual language has to be repeated per file.
 - Design tokens are the `:root` custom properties at the top of each `<style>` block:
-  `--accent` (#0D1F4C), `--orange` (#C9921A), `--ku-blue` (#27A9E1).
+  `--accent` (#0D1F4C), `--orange` (#C9921A), `--ku-blue` (#27A9E1), and in `index.html`
+  `--ku-gold` (#FFCE01).
+- Two golds are in use, deliberately. `--orange` (#C9921A) is the site-wide accent on light
+  backgrounds: section rules, card borders, the lede bar. `--ku-gold` (#FFCE01) is used only
+  in the hero, where anything gold sits on navy and the darker value fails contrast. Do not
+  swap one for the other; pick by background, not by preference.
 - Fonts are Roboto and Roboto Slab, loaded from Google Fonts. Font Awesome 6.5.0 supplies the
   contact icons, including `fa-google-scholar` and `fa-orcid`, both of which require 6.5.0 or
   later.
