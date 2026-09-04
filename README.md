@@ -22,7 +22,6 @@ repo root. Static HTML with no build step: commit a file and it is deployed.
 | `AI_Statement_Tackett.pdf` | PDF counterpart of `ai.html` |
 | `Tackett_CoLLT_Sept2026_In-the-Age-of-AI.pdf` | Slides, CoLLT, 4 Sep 2026 (exported from PowerPoint) |
 | `Tackett_CoLLT_Apr2026_SoFS_Institutional_Profile.pdf` | Slides, CoLLT, 10 Apr 2026 (exported from PowerPoint) |
-| `Tackett_Longway_Dec2024_Semiconductors.pdf` | Slides, Longway Planetarium, Dec 2024 (4.9 MB) |
 | `bc-lockup-light-tagline.svg` | *Boundary Conditions* lockup, used in the blog section of `index.html` |
 | `Tackett_Mace.jpg` | Commencement photograph; the About-section image on `index.html` and the JSON-LD `image` |
 | `sitemap.xml` | Sitemap, linked from `index.html` |
@@ -221,12 +220,6 @@ control is what turned a two-line CV edit into a full rebuild in September 2026.
 - The talk PDFs are LibreOffice exports of the source `.pptx` decks, which are not in this
   repo. The September deck's 6 hidden backup slides are correctly excluded from the export;
   re-exporting will keep excluding them.
-- The Longway semiconductors deck contains roughly 20 images, several of them sourced from
-  third-party sites (Intel, CircuitDigest, and others) and appropriate for live classroom or
-  public display. Publishing it as a permanent download is a different use. Review the image
-  sourcing, or remove the `deck-link` line from that entry in `talks.html` to keep the
-  description without the file. The PDF is also 4.9 MB, by far the largest file in the repo;
-  the images resist further lossless compression.
 - The start date for the SoFS appointment reads June 2025 in `ai.html`, `admin.html`, and both
   corresponding PDFs. Confirm whether June or July is correct; it appears in four places.
 
