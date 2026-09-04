@@ -1,0 +1,215 @@
+% ============================================================
+%  Professional Statement on the Use of Artificial Intelligence
+%  Ronald J. Tackett, Ph.D.
+%  Engine: XeLaTeX
+%
+%  CHANGELOG
+%  v1.6  2026-09-04  SoFS start corrected from June to July 2025.
+%  v1.5  2026-09-03  Replaced the drafted verification sentence in II with
+%                    Ron's actual practice: all AI-assisted code is thoroughly
+%                    tested, and the prose/code distinction is made explicit.
+%  v1.4  2026-09-03  Added interactive-visualization practice to II (HTML/CSS/JS
+%                    built with Claude), with the two reservations and the
+%                    limiting-case verification check. Tied it into VIII.
+%  v1.3  2026-09-03  Added grading practice to II (names redacted, grades
+%                    assigned by hand, AI used as a consistency and
+%                    completeness check on already-evaluated work).
+%  v1.2  2026-09-03  Clarified II and III: quantitative work is code-mediated
+%                    (Claude writes Python/pandas parsers that run offline),
+%                    so institutional data is not sent to the model at all.
+%  v1.1  2026-09-03  Added Section III (Where I Do Not Use It): peer-review
+%                    exclusion and de-identification practice. Added output
+%                    verification to II. Sharpened student-access claim in IV.
+%                    Updated VIII for the CoLLT gatherings. Rewrote IX.
+%                    Sections renumbered III-VIII to IV-IX.
+%  v1.0  2026-09-03  Rebuilt in LaTeX from the March 2026 PDF.
+%                    Content unchanged; footer date moved to
+%                    September 3, 2026 and the closing block from
+%                    Spring 2026 to Fall 2026.
+% ============================================================
+\documentclass[10pt]{article}
+\usepackage{tackettdoc}
+
+\setdoclabel{AI Personal Statement}
+\setupdated{September 3, 2026}
+
+\begin{document}
+
+\statementheader
+  {Founding Head, School of Foundational Studies}
+  {Associate Professor of Physics \textperiodcentered\ Kettering University}
+  {Professional Statement on the Use of Artificial Intelligence}
+
+\lede{This statement reflects where I am right now in my thinking about artificial intelligence
+in my professional work. It is not a final position. I am still working through many of these
+questions, and I expect this statement to look different in a year or two.}
+
+\stsection{I. Context}
+
+I became Founding Head of the School of Foundational Studies (SoFS) in July 2025, which means I
+am standing up a new academic unit at a moment when questions about AI in higher education are
+particularly unsettled. That timing shapes how I think about this. The decisions made now about
+how the SoFS approaches AI will have some staying power, so I am trying to be deliberate rather
+than reactive. This statement is part of that effort.
+
+\stsection{II. How I Currently Use AI}
+
+I use AI, primarily Claude (Anthropic's AI assistant), regularly across most areas of my work.
+On the administrative side, this includes producing documents like budget reports, curriculum
+memos, faculty communications, and enrollment analyses. Much of the quantitative work is
+indirect, and deliberately so. Rather than hand institutional data to an AI system, I use
+Claude to help me write Python programs, usually built on pandas, that parse the standard
+reports I download from our databases and generate formatted output. Those programs run offline
+on my own machine, so the data never leaves it. What I am asking AI for in that arrangement is
+the tooling, not access to the records. In communications, I use AI
+to refine drafts of memos, letters, and newsletter columns; I bring the substance, and AI helps
+shape them. For curriculum work, I have used it to help organize reports and recommendations
+for the SoFS Curriculum Council and the University Curriculum Committee.
+
+I also use AI in building course materials and syllabi, and in the early stages of proposal
+work, where it helps me outline an argument and pressure-test a draft before it goes anywhere.
+The throughline in all of this is that AI handles execution on tasks where I have already done
+the thinking. The judgment, the context, and the decisions remain mine.
+
+Grading deserves its own account, because it is the use students have the most legitimate
+interest in knowing about. Student names are redacted before any work goes into a tool. I assign
+every grade myself. What I use AI for is a second pass over work I have already evaluated:
+checking that I applied the same standard to the twentieth submission as to the first, and that
+I did not overlook something a student actually did. Consistency across a stack of papers is
+precisely where human attention degrades, and a second reader helps. The judgment stays mine.
+What I am checking is whether I exercised it evenly.
+
+The newest use, and the one students actually see, is building interactive visualizations of
+scientific concepts. Working with Claude in HTML, CSS, and JavaScript, I can put together a
+functioning simulation far faster than I could on my own: a field that reconfigures as a student
+varies a parameter, a distribution that shifts as a constraint changes. These are not
+demonstrations that do the reasoning for students. They make a concept confrontable while
+leaving the work intact, because the student still has to predict what will happen and then find
+out whether they were right. Of everything described here, this is the use I would point to as
+AI serving learning rather than merely not damaging it.
+
+Two things about it give me pause. The first is that what limits me is no longer my facility
+with JavaScript; it is my judgment about whether students need the thing at all. Building has
+become cheap enough that I have to watch for building because I can rather than because a
+concept called for it. The second is that I am putting code in front of a class that I did not
+write line by line, and a visualization carrying a subtle physics error is worse than no
+visualization, because it teaches the error with the authority of a picture. Prose I spot-check, as I
+said above. Code is different, because a bug does not announce itself the way an awkward
+sentence does. So I thoroughly test every program I write with AI assistance, the
+visualizations and the parsing scripts alike, before it does any real work. Code I did not write
+line by line gets more scrutiny from me, not less.
+
+What I do not do is take the output on faith. I spot-check rather than verify every line, and I
+treat whatever goes out under my name as mine regardless of how it was produced. ``The tool
+generated it'' is not a defense I am willing to offer, and building a practice that would
+require me to offer it seems like a bad trade.
+
+\stsection{III. Where I Do Not Use It}
+
+There are places I keep these tools out entirely, and I think the exclusions say as much about
+a practice as the uses do.
+
+The first is peer review. I have served on an NSF review panel and I review for several
+journals, and I do not put proposal or manuscript content into an AI system. NSF prohibits it
+outright. The reasoning behind that prohibition, that material submitted in confidence should
+not be fed into a system outside the review process, holds regardless of whether a rule compels
+it. My own proposals are a different matter entirely; there I use AI to help outline an argument
+and strengthen a draft, because that work is mine to share.
+
+The second is anything that identifies a person. Some of the administrative work described
+above touches personnel matters, student records, and student work. Much of the time the question does not
+arise, because the work is done by code running locally and the records never go anywhere. When
+I do need to reason through the content of something directly, it is de-identified or aggregated
+first, so what I am actually discussing is a pattern rather than a person. This is a real
+constraint on what AI can do for me, and there are analyses I simply do
+not run as a result. I would rather accept the constraint than leave confidentiality to my
+judgment in the moment, when the convenient answer and the right one are hard to tell apart.
+
+\stsection{IV. The Benefits I See}
+
+The most practical benefit is capacity. My role is broad, and AI allows me to produce work at a
+level of quality and volume that would otherwise be difficult to sustain. For colleagues, I
+think the value is similar: less friction on editing and administrative tasks, more time for the
+work that actually requires human presence. For students, the benefit is real but narrower than it
+is usually described. A student who has already worked a problem and wants a second explanation
+at eleven at night is genuinely well served. A student who has not yet attempted the problem is
+not; the same tool that would have helped an hour later will, at that moment, quietly do the work
+that was supposed to build the capability. The value is not in the access itself but in where the
+student is standing when they reach for it.
+
+\stsection{V. My Concerns}
+
+My main concern is that AI makes it easy to skip the productive struggle that builds real
+competence. In foundational education, especially, the difficulty is not incidental; it is the
+mechanism (it's the process, not the product, so to speak). Students who reach for AI before
+they have developed enough judgment to evaluate the output are not being helped; they are being
+shortchanged. I also worry about institutional policy drifting so far behind actual practice
+that it becomes meaningless, and about colleagues being left to figure all of this out without
+much support.
+
+\stsection{VI. The Principles I Try to Follow}
+
+A few things guide how I use AI in practice.
+
+\begin{itemize}[leftmargin=1.4em, itemsep=0.35em, topsep=0.3em, parsep=0pt]
+  \item I try to be transparent about when and how I use it. I do not think there is anything to
+        hide, and modeling openness seems important given my role.
+  \item I keep consequential judgments human. Decisions that affect people, including faculty,
+        students, and the direction of the school, are mine to make, not to delegate.
+  \item I think about fitness for purpose. Not every task benefits from AI involvement, and some
+        are better done without it.
+  \item I try to hold myself to the same standard I hold my students to.
+\end{itemize}
+
+I lead a school built on the value of foundational learning. I should not quietly let my own
+tools erode the habits of mind I am asking students to develop.
+
+\stsection{VII. AI in My Courses}
+
+My AI policy varies by course and assignment, but the underlying message to students is
+consistent: the difficulty is not the obstacle, it is the point. In foundational education, the
+struggle to work through a problem, construct an argument, or derive a result is where learning
+actually happens. A student who offloads that struggle to AI may produce a correct answer, but
+they have skipped the process that builds the competence the answer is supposed to represent. I
+try to make that distinction explicit with my students rather than simply restricting or
+permitting AI use by rule. The policy question I keep coming back to is not whether AI is
+allowed, but whether its use in a given moment serves the student's development or substitutes
+for it.
+
+\stsection{VIII. Where I Expect This to Go}
+
+In administration, I expect to consolidate what I have built and make it accessible to others
+rather than continue adding to it. In teaching, the more significant shift will come, in my
+opinion, as AI-assisted problem-solving becomes part of the subject matter in some of my
+courses rather than something to accommodate around the edges. The visualizations described
+above are an early version of that shift. At the moment I build them and students use them, and
+I am not convinced that is where it should end up.
+
+At the school level, the work has already moved from designing a framework to using it, and it
+has moved further outward than I anticipated when I first drafted this statement. In April 2026
+I sat down with seven other liberal arts units at technological universities to compare how each
+of us was structured and what each of us thought we were for. In September I argued to that same
+group, by then considerably larger, that the question worth asking is not how to accommodate AI
+but what we are actually educating students for. Making that case to peers clarified my own
+thinking more than any amount of internal drafting had. It also means I am now committed in
+public to positions I am still testing, which is uncomfortable in a way I have come to think is
+useful.
+
+I expect my use of AI to become more deliberate over time, though not necessarily more
+extensive.
+
+\stsection{IX. My Commitments}
+
+I will keep saying plainly how I use these tools, including in rooms where that is not the
+expected answer. I will keep the consequential judgments (about people, about curriculum, about
+the direction of the school) on my side of the line, and I will keep the exclusions in Section
+III intact even when they cost me something. And I will keep checking whether the habits I ask
+students to build are habits my own practice actually reflects, because a school built on
+foundational learning cannot be led by someone quietly exempting himself from it.
+
+If this statement reads differently a year from now, that will be because the thinking moved. I
+would rather revise it in public than leave it standing after I have stopped believing it.
+
+\signatureblock{Fall 2026}
+
+\end{document}
