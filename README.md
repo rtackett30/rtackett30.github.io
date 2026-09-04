@@ -163,10 +163,39 @@ schedule recrawls will be wrong.
 
 `robots.txt` allows all crawlers and points to the sitemap.
 
+## Publication DOIs
+
+Every published entry in `cv.html` and in the LaTeX CV carries a linked DOI except the 2005
+*Phys. Rev. B* memory-effects paper, which has none in the ORCID record. DOIs came from an
+ORCID BibTeX export run through Crossref; they were not constructed from citation patterns,
+and none should be.
+
+Adding a DOI to the LaTeX can push a reference past the margin. `tackettdoc.sty` loads `url`
+with `\UrlBreaks` and sets `emergencystretch` to 2.5em to allow breaking inside the string.
+Check the log for `Overfull` after adding references.
+
+## Corrections applied 2026-09-04
+
+Three publication entries were wrong in both the HTML and the PDF, and each was verified
+against the publisher record before changing:
+
+| Was | Is | Source |
+|---|---|---|
+| pyrochlore Bi2Ti2O4 | Bi2Ti2O**7** | Melot 2009, PRB 79, 224111 |
+| La- and **Hy**-doped ... **ferro**magnetic | La- and **Dy**-doped ... **ferri**magnetic | AIP record, JAP 109, 07A510 |
+| "Spin-ice state ...", PRB 77, **054408** | "**Ordered** spin-ice state ...", PRB 77, **020406** | APS record, Rapid Communication |
+
+Note that ORCID's own record still reads "Ho-doped" for the second of these and holds a
+duplicate of the Néel relaxation paper. Both need fixing in ORCID directly.
+
+The SoFS start date reads **July 2025** throughout (`ai.html`, `admin.html`, and both PDFs).
+
 ## PDFs and their LaTeX source
 
-The four PDFs are compiled from LaTeX, **not** exported from the HTML. Source lives outside
-this repo (see `cv-latex-source/`, which should be committed here so the two stay together).
+The four PDFs are compiled from LaTeX, **not** exported from the HTML. The source is **not yet
+committed to this repo**; it lives in `cv-latex-source.zip` alongside these files and should be
+unpacked into a `latex/` folder here so the two stay together. Keeping it outside version
+control is what turned a two-line CV edit into a full rebuild in September 2026.
 
 - Engine is **XeLaTeX**, run twice so footer page numbers settle. LuaLaTeX will fail in
   environments without a populated `luaotfload` font cache.
